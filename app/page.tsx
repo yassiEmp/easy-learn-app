@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 
 export default function Home() {
   const [selectedTheme, setSelectedTheme] = useState<number | null>(null);
-
+  const [mode, setMode] = useState<"apprentissage" | "devoir">("apprentissage");
   const handleThemeSelect = (theme: number) => {
     setSelectedTheme(theme);
   };
@@ -14,14 +14,29 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       {selectedTheme === null ? (
-        <ThemeSelector onThemeSelect={handleThemeSelect} />
+        <>
+          <ThemeSelector onThemeSelect={handleThemeSelect} />
+          <div>
+            <h2 className="text-2xl">Activer le :</h2>
+          <Button
+            onClick={() =>
+              setMode(mode === "apprentissage" ? "devoir" : "apprentissage")
+            }
+          >
+            {mode === "apprentissage" ? "Mode devoir" : "Mode apprentissage"}
+          </Button>
+
+          </div>
+        </>
       ) : (
         <>
-          <Quiz theme={selectedTheme} mode='apprentissage'/>
-          <Button onClick={() => setSelectedTheme(null)} className="mb-8">Choisir le theme</Button>
+          <h3> vous etes en mode <span className="text-red-700">{mode}</span></h3>
+          <Quiz theme={selectedTheme} mode={mode} />
+          <Button onClick={() => setSelectedTheme(null)} className="mb-8">
+            Choisir le theme
+          </Button>
         </>
       )}
     </main>
   );
 }
-
