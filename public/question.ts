@@ -1340,7 +1340,7 @@ export const dureeTravail: Question = [
   },
   {
     question:
-      "Quelle est la rémunération des heures supplémentaires jusqu'à 480 heures ?",
+      "Quelle est la rémunération des heures supplémentaires jusqu'à 48 heures ?",
     options: [
       "a) 10% du taux horaire.",
       "b) 12% du taux horaire.",
