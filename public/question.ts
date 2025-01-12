@@ -928,7 +928,7 @@ export const pouvoirEmployeur: Question = [
       "c) Le pouvoir réglementaire.",
       "d) Le pouvoir de décision.",
     ],
-    answer:1,
+    answer: 1,
   },
   {
     question:
@@ -939,7 +939,7 @@ export const pouvoirEmployeur: Question = [
       "c) Le pouvoir réglementaire.",
       "d) Le pouvoir de surveillance.",
     ],
-    answer:2,
+    answer: 2,
   },
 ];
 export const devoirEmployeur: Question = [
@@ -1007,10 +1007,582 @@ const questionTheme5 = [
   ...devoirEmployeur,
 ];
 
+//question du theme 6
+export const cessationContratTravail: Question = [
+  {
+    question: "Qu'est-ce que la suspension du contrat de travail ?",
+    options: [
+      "a) La cessation définitive du contrat.",
+      "b) La cessation momentanée du contrat en raison d'un événement lié ou non aux parties.",
+      "c) La résiliation immédiate du contrat.",
+      "d) L'interruption volontaire du contrat par l'employeur.",
+    ],
+    answer: 1,
+  },
+  {
+    question:
+      "Quels événements peuvent entraîner la suspension du contrat de travail ?",
+    options: [
+      "a) Le départ en retraite de l'employé.",
+      "b) La fermeture de l'établissement pour le service militaire de l'employeur.",
+      "c) L'absence volontaire de l'employé pour des vacances.",
+      "d) Aucune de ces réponses.",
+    ],
+    answer: 1,
+  },
+  {
+    question:
+      "Pendant combien de temps le contrat de travail peut-il être suspendu en raison d'un accident du travail ?",
+    options: [
+      "a) Jusqu'à la guérison de la maladie ou la consolidation de la blessure.",
+      "b) Jusqu'à la fin du contrat.",
+      "c) Jusqu'à la fin de l'année.",
+      "d) Le contrat est suspendu définitivement.",
+    ],
+    answer: 0,
+  },
+  {
+    question:
+      "Le contrat de travail est-il suspendu pendant la période de grève ?",
+    options: [
+      "a) Oui, si la grève est déclenchée conformément à la procédure légale.",
+      "b) Non, le contrat continue normalement.",
+      "c) Oui, mais seulement si la grève est nationale.",
+      "d) Non, le travailleur doit poursuivre ses activités pendant la grève.",
+    ],
+    answer: 0,
+  },
+  {
+    question: "Quels sont les effets de la suspension du contrat de travail ?",
+    options: [
+      "a) Le salarié n'est plus payé pendant la suspension.",
+      "b) Le salarié conserve ses droits liés au contrat, comme le salaire.",
+      "c) Le salarié perd son droit à la sécurité sociale.",
+      "d) Aucune de ces réponses.",
+    ],
+    answer: 1,
+  },
+  {
+    question:
+      "Quelles sont les autres causes qui peuvent entraîner la suspension du contrat de travail ?",
+    options: [
+      "a) L'absence pour maladie constatée par un médecin agréé.",
+      "b) Le refus d'accepter un autre poste dans l'entreprise.",
+      "c) La non-présentation à une réunion d'équipe.",
+      "d) Aucune de ces réponses.",
+    ],
+    answer: 0,
+  },
+];
+export const ruptureContratTravail: Question = [
+  {
+    question: "Qu'est-ce que la rupture du contrat de travail ?",
+    options: [
+      "a) La suspension temporaire des effets du contrat.",
+      "b) La modification des conditions de travail.",
+      "c) La cessation définitive des effets du contrat.",
+      "d) La réorganisation interne de l'entreprise.",
+    ],
+    answer: 2,
+  },
+  {
+    question: "Quelle est la cause de rupture d'un CDD avant son terme ?",
+    options: [
+      "a) Un accord des parties constaté par écrit.",
+      "b) Un licenciement pour faute lourde.",
+      "c) Un événement de force majeure.",
+      "d) Toutes les réponses précédentes.",
+    ],
+    answer: 3,
+  },
+  {
+    question: "Qu'est-ce qu'une faute lourde ?",
+    options: [
+      "a) Un retard dans l'exécution des tâches quotidiennes.",
+      "b) Une malversation ou une violation grave du contrat de travail.",
+      "c) Un oubli d'un document administratif.",
+      "d) Une petite négligence dans les tâches assignées.",
+    ],
+    answer: 1,
+  },
+  {
+    question: "Quelles actions peuvent constituer une faute lourde ?",
+    options: [
+      "a) Le refus d'exécuter un travail.",
+      "b) La violation du secret professionnel.",
+      "c) L'état d'ivresse au travail.",
+      "d) Toutes les réponses précédentes.",
+    ],
+    answer: 3,
+  },
+  {
+    question:
+      "Qu'est-ce qu'un événement de force majeure dans le cadre d'un CDD ?",
+    options: [
+      "a) Un changement de direction dans l'entreprise.",
+      "b) Un événement imprévisible, extérieur à l'entreprise et rendant impossible la poursuite des relations contractuelles.",
+      "c) Une grève nationale.",
+      "d) La modification des horaires de travail.",
+    ],
+    answer: 1,
+  },
+  {
+    question: "Quelles sont les conséquences d'une faute lourde d'un salarié ?",
+    options: [
+      "a) Une rupture immédiate et sans indemnité du contrat.",
+      "b) Une suspension temporaire du contrat avec une perte de salaire.",
+      "c) Un avertissement écrit.",
+      "d) Une réorganisation des tâches du salarié.",
+    ],
+    answer: 0,
+  },
+];
+export const causesRuptureCDI: Question = [
+  {
+    question:
+      "Quelles sont les causes de la rupture d'un contrat à durée indéterminée (CDI) ?",
+    options: [
+      "a) Le licenciement, la démission, le départ à la retraite, le décès.",
+      "b) Le licenciement et la démission uniquement.",
+      "c) Le licenciement et le décès uniquement.",
+      "d) Le départ à la retraite uniquement.",
+    ],
+    answer: 0,
+  },
+  {
+    question: "Qu'est-ce que le licenciement ?",
+    options: [
+      "a) La résiliation du contrat de travail à durée indéterminée à l'initiative du salarié.",
+      "b) La résiliation du contrat de travail à durée déterminée à l'initiative de l'employeur.",
+      "c) La résiliation du contrat de travail à durée indéterminée à l'initiative de l'employeur.",
+      "d) La résiliation du contrat de travail à durée déterminée à l'initiative du salarié.",
+    ],
+    answer: 2,
+  },
+  {
+    question: "Quelle est la procédure de licenciement individuel ?",
+    options: [
+      "a) Convocation du salarié pour un entretien, notification de la lettre de licenciement et information sur le motif.",
+      "b) Convocation du salarié pour un entretien, information du motif du licenciement et renvoi immédiat.",
+      "c) Convocation d'un représentant syndical, notification d'une amende et réduction du salaire.",
+      "d) Aucune des réponses ci-dessus.",
+    ],
+    answer: 0,
+  },
+  {
+    question:
+      "Le licenciement, s'il n'est pas pour faute grave ou lourde, nécessite-t-il un préavis ?",
+    options: [
+      "a) Oui, et il commence au lendemain de la notification du licenciement.",
+      "b) Non, il n'y a pas de préavis dans ce cas.",
+      "c) Oui, mais il commence 3 jours avant la notification du licenciement.",
+      "d) Oui, mais le délai commence à courir 15 jours après la notification du licenciement.",
+    ],
+    answer: 0,
+  },
+  {
+    question:
+      "Quelle est la durée du préavis pour un salarié payé à l'heure ou à la journée en cas de licenciement ?",
+    options: ["a) 1 mois.", "b) 3 mois.", "c) 15 jours.", "d) 2 mois."],
+    answer: 2,
+  },
+  {
+    question:
+      "Quel est le préavis pour un cadre ou agent de maîtrise licencié ?",
+    options: ["a) 15 jours.", "b) 1 mois.", "c) 2 mois.", "d) 3 mois."],
+    answer: 3,
+  },
+];
+export const licenciementProcedures: Question = [
+  {
+    question: "Quelle est la différence entre licenciement et démission ?",
+    options: [
+      "a) Le licenciement est à l'initiative du salarié, la démission à l'initiative de l'employeur.",
+      "b) Le licenciement est à l'initiative de l'employeur, la démission à l'initiative du salarié.",
+      "c) Le licenciement et la démission sont à l'initiative de l'employeur.",
+      "d) Le licenciement et la démission sont à l'initiative du salarié.",
+    ],
+    answer: 1,
+  },
+  {
+    question: "Qu'est-ce que le licenciement individuel ?",
+    options: [
+      "a) La rupture d'un contrat de travail à durée indéterminée de plusieurs employés.",
+      "b) La rupture d'un contrat de travail à durée déterminée d'un seul salarié.",
+      "c) La rupture d'un contrat de travail à durée indéterminée d'un seul salarié.",
+      "d) La rupture d'un contrat de travail à durée déterminée de plusieurs salariés.",
+    ],
+    answer: 2,
+  },
+  {
+    question:
+      "Que doit faire l'employeur avant de procéder à un licenciement individuel ?",
+    options: [
+      "a) Informer l'inspecteur du travail.",
+      "b) Organiser un entretien avec le salarié concerné.",
+      "c) Informer les délégués du personnel.",
+      "d) Envoyer immédiatement la lettre de licenciement.",
+    ],
+    answer: 1,
+  },
+  {
+    question:
+      "Quelle est la durée du préavis pour un salarié licencié payé au mois ?",
+    options: ["a) 15 jours.", "b) 1 mois.", "c) 3 mois.", "d) Aucun préavis."],
+    answer: 1,
+  },
+  {
+    question:
+      "En cas de licenciement collectif, quelle est l'une des démarches obligatoires de l'employeur ?",
+    options: [
+      "a) Convocation des délégués syndicaux uniquement.",
+      "b) Informer l'inspecteur du travail du projet de licenciement.",
+      "c) Ne pas notifier les salariés avant 2 semaines.",
+      "d) Aucune démarche n'est obligatoire.",
+    ],
+    answer: 1,
+  },
+  {
+    question:
+      "Quel est le montant de l'indemnité de licenciement en cas de faute lourde ?",
+    options: [
+      "a) Aucun montant n'est versé.",
+      "b) 30% du SMM par année d'ancienneté.",
+      "c) 35% du SMM par année d'ancienneté.",
+      "d) 40% du SMM par année d'ancienneté.",
+    ],
+    answer: 0,
+  },
+  {
+    question:
+      "Quel document l'employeur doit-il remettre au salarié licencié ?",
+    options: [
+      "a) Le reçu pour solde de tout compte et le certificat de travail.",
+      "b) Le certificat de travail uniquement.",
+      "c) Le reçu pour solde de tout compte uniquement.",
+      "d) Aucun document n'est requis.",
+    ],
+    answer: 0,
+  },
+  {
+    question:
+      "Le montant de l'indemnité de licenciement peut-il être supérieur à 9 mois de salaire brut ?",
+    options: [
+      "a) Oui, mais seulement en cas de licenciement individuel.",
+      "b) Non, il ne peut excéder 9 mois de salaire brut.",
+      "c) Oui, il peut être fixé à la discrétion de l'employeur.",
+      "d) Oui, si le salarié est un cadre supérieur.",
+    ],
+    answer: 1,
+  },
+  {
+    question:
+      "Quel est le barème pour calculer l'indemnité de licenciement en cas de licenciement individuel ?",
+    options: [
+      "a) 30% du SMM pour les 5 premières années, 35% pour les 5 années suivantes, 40% pour le reste.",
+      "b) 20% du SMM pour chaque année d'ancienneté.",
+      "c) 30% du SMM pour chaque année d'ancienneté.",
+      "d) 35% du SMM pour chaque année d'ancienneté.",
+    ],
+    answer: 0,
+  },
+  {
+    question: "Qu'est-ce qu'une indemnité de licenciement abusif ?",
+    options: [
+      "a) Une indemnité versée à tout salarié licencié sans faute.",
+      "b) Une indemnité fixée par les juges en fonction du préjudice subi par le salarié.",
+      "c) Une indemnité versée uniquement en cas de licenciement économique.",
+      "d) Une indemnité égale à 30% du salaire mensuel.",
+    ],
+    answer: 1,
+  },
+];
+
+const questionTheme6: Question = [
+  ...cessationContratTravail,
+  ...ruptureContratTravail,
+  ...causesRuptureCDI,
+  ...licenciementProcedures,
+];
+
+//question du theme 7
+export const dureeTravail: Question = [
+  {
+    question: "Quelle est la durée légale de travail par semaine ?",
+    options: [
+      "a) 35 heures par semaine.",
+      "b) 40 heures par semaine.",
+      "c) 45 heures par semaine.",
+      "d) 50 heures par semaine.",
+    ],
+    answer: 1,
+  },
+  {
+    question:
+      "Quels sont les aménagements qui permettent de dépasser la durée légale de travail ?",
+    options: [
+      "a) Les heures supplémentaires et la récupération des heures perdues.",
+      "b) La modulation et la récupération des heures perdues.",
+      "c) Les équivalences, les heures supplémentaires et la modulation.",
+      "d) Les heures supplémentaires et la flexibilité des horaires.",
+    ],
+    answer: 2,
+  },
+  {
+    question: "Que sont les heures supplémentaires ?",
+    options: [
+      "a) Les heures effectuées pendant les pauses.",
+      "b) Les heures de travail effectuées au-delà de la durée légale de travail.",
+      "c) Les heures de travail effectuées uniquement le week-end.",
+      "d) Les heures de travail supplémentaires imposées par l'employeur sans compensation.",
+    ],
+    answer: 1,
+  },
+  {
+    question:
+      "Quelle est la rémunération des heures supplémentaires jusqu'à 480 heures ?",
+    options: [
+      "a) 10% du taux horaire.",
+      "b) 12% du taux horaire.",
+      "c) 15% du taux horaire.",
+      "d) 35% du taux horaire.",
+    ],
+    answer: 1,
+  },
+  {
+    question:
+      "Quelle est la rémunération des heures supplémentaires effectuées entre 21 heures et 5 heures ?",
+    options: [
+      "a) 35% du taux horaire.",
+      "b) 50% du taux horaire les jours ouvrables.",
+      "c) 50% du taux horaire tous les jours.",
+      "d) 100% du taux horaire tous les jours.",
+    ],
+    answer: 1,
+  },
+  {
+    question:
+      "Quel est le taux de rémunération des heures supplémentaires effectuées les dimanches et jours fériés ?",
+    options: [
+      "a) 50% du taux horaire.",
+      "b) 35% du taux horaire.",
+      "c) 100% du taux horaire.",
+      "d) 120% du taux horaire.",
+    ],
+    answer: 2,
+  },
+  {
+    question:
+      "Combien d'heures supplémentaires peuvent être effectuées par jour ?",
+    options: [
+      "a) 2 heures par jour.",
+      "b) 4 heures par jour.",
+      "c) 6 heures par jour.",
+      "d) 8 heures par jour.",
+    ],
+    answer: 1,
+  },
+  {
+    question:
+      "Combien d'heures supplémentaires peuvent être effectuées par semaine ?",
+    options: [
+      "a) 10 heures par semaine.",
+      "b) 15 heures par semaine.",
+      "c) 20 heures par semaine.",
+      "d) 25 heures par semaine.",
+    ],
+    answer: 2,
+  },
+];
+
+export const heuresEquivalence: Question = [
+  {
+    question: "Que sont les heures d'équivalence ?",
+    options: [
+      "a) Les heures effectuées au-delà de la durée légale de travail.",
+      "b) Les heures de travail effectuées pendant les temps morts dans certains secteurs.",
+      "c) Les heures de travail imposées par l'employeur pendant les pauses.",
+      "d) Les heures supplémentaires rémunérées à un taux plus élevé.",
+    ],
+    answer: 1,
+  },
+  {
+    question:
+      "Dans quels secteurs les heures d'équivalence sont-elles couramment utilisées ?",
+    options: [
+      "a) Hôtellerie et restauration.",
+      "b) Secteur public.",
+      "c) Industrie manufacturière.",
+      "d) Secteur informatique.",
+    ],
+    answer: 0,
+  },
+  {
+    question:
+      "Pourquoi les heures d'équivalence sont-elles appliquées dans certains secteurs ?",
+    options: [
+      "a) Parce que les travailleurs doivent effectuer des heures supplémentaires.",
+      "b) Parce qu'il y a des temps morts pendant lesquels les employés ne travaillent pas réellement.",
+      "c) Parce que les travailleurs bénéficient d'une prime pour les heures supplémentaires.",
+      "d) Parce que les heures de travail sont divisées en périodes distinctes.",
+    ],
+    answer: 1,
+  },
+];
+
+export const heuresRecuperation: Question = [
+  {
+    question: "Que sont les heures de récupération ?",
+    options: [
+      "a) Des heures de travail effectuées au-delà de la durée légale.",
+      "b) Des heures qui permettent de compenser le temps perdu à cause d'un cas de force majeure.",
+      "c) Des heures supplémentaires rémunérées à un taux plus élevé.",
+      "d) Des heures de travail pendant les périodes de pause.",
+    ],
+    answer: 1,
+  },
+  {
+    question:
+      "Les heures de récupération ouvrent-elles droit à une rémunération complémentaire ?",
+    options: [
+      "a) Oui, elles sont rémunérées à un taux supérieur.",
+      "b) Non, elles ne donnent pas droit à une rémunération complémentaire.",
+      "c) Oui, mais seulement si elles sont effectuées pendant la nuit.",
+      "d) Non, mais elles sont compensées par un congé supplémentaire.",
+    ],
+    answer: 1,
+  },
+  {
+    question: "Pourquoi les heures de récupération sont-elles utilisées ?",
+    options: [
+      "a) Pour compenser le travail supplémentaire effectué pendant les heures supplémentaires.",
+      "b) Pour récupérer les heures perdues en raison d'un cas de force majeure.",
+      "c) Pour permettre aux employés de prendre des pauses plus longues.",
+      "d) Pour offrir une rémunération supplémentaire aux travailleurs.",
+    ],
+    answer: 1,
+  },
+];
+
+export const modulationRepos: Question = [
+  {
+    question: "Qu'est-ce que la modulation du temps de travail ?",
+    options: [
+      "a) Une réduction des heures de travail pendant les périodes de moindre activité.",
+      "b) Un accord d'entreprise permettant de répartir inégalement les heures de travail.",
+      "c) Un dispositif de rémunération pour les heures supplémentaires.",
+      "d) Un mécanisme permettant de récupérer les heures de travail perdues.",
+    ],
+    answer: 1,
+  },
+  {
+    question: "Que sont les heures de dérogation ?",
+    options: [
+      "a) Les heures effectuées pendant les jours fériés.",
+      "b) Les heures supplémentaires effectuées pendant les périodes de grande activité.",
+      "c) Les heures non rémunérées pendant le repos hebdomadaire.",
+      "d) Les heures de travail effectuées par les travailleurs à temps partiel.",
+    ],
+    answer: 1,
+  },
+  {
+    question: "Quel est le repos hebdomadaire légal ?",
+    options: [
+      "a) 48 heures consécutives.",
+      "b) 24 heures consécutives, généralement le dimanche.",
+      "c) 36 heures consécutives, avec des heures supplémentaires.",
+      "d) Un jour de repos par semaine, au choix de l'employeur.",
+    ],
+    answer: 1,
+  },
+  {
+    question: "Quels jours sont considérés comme jours fériés au Bénin ?",
+    options: [
+      "a) 1er janvier, 1er août, 25 décembre.",
+      "b) 1er janvier, 15 août, 25 décembre.",
+      "c) 1er janvier, 10 janvier, Lundi de Pâques.",
+      "d) 1er janvier, 10 janvier, Jour de Ramadan.",
+    ],
+    answer: 0,
+  },
+  {
+    question:
+      "Les heures supplémentaires effectuées pendant le repos légal hebdomadaire sont-elles rémunérées à un taux majoré ?",
+    options: [
+      "a) Oui, elles sont majorées de 50% et de 100% pour les heures de nuit.",
+      "b) Non, elles sont rémunérées au taux horaire normal.",
+      "c) Oui, elles sont majorées de 25% seulement.",
+      "d) Non, les heures supplémentaires effectuées pendant le repos légal sont interdites.",
+    ],
+    answer: 0,
+  },
+];
+
+export const congésTravailleurs: Question = [
+  {
+    question: "Qu'est-ce qu'un congé dû à une maladie ?",
+    options: [
+      "a) Un congé payé pour des raisons personnelles.",
+      "b) Un congé dû à une maladie dûment constatée par un médecin agréé.",
+      "c) Un congé donné pour des vacances.",
+      "d) Un congé sans rémunération pendant une longue maladie.",
+    ],
+    answer: 1,
+  },
+  {
+    question: "Que se passe-t-il si une maladie dépasse 6 mois ?",
+    options: [
+      "a) Le travailleur continue de bénéficier de son traitement intégral.",
+      "b) Le travailleur ne bénéficie plus de congé maladie.",
+      "c) Le travailleur bénéficie de la moitié de son traitement.",
+      "d) Le travailleur est réaffecté à un autre poste.",
+    ],
+    answer: 2,
+  },
+  {
+    question: "Combien de semaines dure un congé de maternité ?",
+    options: [
+      "a) 10 semaines.",
+      "b) 14 semaines.",
+      "c) 16 semaines.",
+      "d) 18 semaines.",
+    ],
+    answer: 1,
+  },
+  {
+    question:
+      "Combien de jours de congé le travailleur bénéficie-t-il pour le mariage ?",
+    options: ["a) 1 jour.", "b) 3 jours.", "c) 5 jours.", "d) 7 jours."],
+    answer: 1,
+  },
+  {
+    question:
+      "Quel est le nombre maximum de jours de permissions exceptionnelles qu'un travailleur peut obtenir par an ?",
+    options: ["a) 5 jours.", "b) 10 jours.", "c) 15 jours.", "d) 20 jours."],
+    answer: 1,
+  },
+  {
+    question:
+      "Combien de jours d'autorisation d'absence un travailleur peut-il obtenir par an ?",
+    options: ["a) 10 jours.", "b) 12 jours.", "c) 15 jours.", "d) 20 jours."],
+    answer: 2,
+  },
+];
+
+const questionTheme7: Question = [
+  ...dureeTravail,
+  ...heuresEquivalence,
+  ...heuresRecuperation,
+  ...modulationRepos,
+  ...congésTravailleurs,
+];
+
 export {
   questionTheme1,
   questionTheme2,
   questionTheme3,
   questionTheme4,
   questionTheme5,
+  questionTheme6,
+  questionTheme7,
 };
