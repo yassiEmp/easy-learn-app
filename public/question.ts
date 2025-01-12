@@ -1,4 +1,10 @@
-const questionTheme1 = [
+type Question = {
+  question: string;
+  options: string[];
+  answer: number;
+}[];
+
+const questionTheme1: Question = [
   {
     question:
       "Quels sont les trois éléments principaux encadrés par le droit du travail ?",
@@ -87,7 +93,7 @@ const questionTheme1 = [
   },
 ];
 
-const questionTheme2 = [
+const questionTheme2: Question = [
   {
     question: "Quelle est la définition du contrat de travail ?",
     options: [
@@ -217,7 +223,7 @@ const questionTheme2 = [
 ];
 
 //question du theme 3
-export const questionTheme3P1 = [
+export const questionTheme3P1: Question = [
   {
     question: "Quelle est la définition du contrat à durée déterminée ?",
     options: [
@@ -280,7 +286,7 @@ export const questionTheme3P1 = [
     answer: 0,
   },
 ];
-export const contrat_a_duree_determine = [
+export const contrat_a_duree_determine: Question = [
   {
     question: "Qu'est-ce qu'un contrat de travail à temps partiel ?",
     options: [
@@ -335,7 +341,7 @@ export const contrat_a_duree_determine = [
     answer: 0,
   },
 ];
-export const travail_intérimaire = [
+export const travail_intérimaire: Question = [
   {
     question: "Qu'est-ce que le travail intérimaire ?",
     options: [
@@ -388,7 +394,7 @@ export const travail_intérimaire = [
     answer: 0,
   },
 ];
-export const sous_traitance = [
+export const sous_traitance: Question = [
   {
     question: "Qu'est-ce qu'un contrat de sous-traitance ?",
     options: [
@@ -442,7 +448,7 @@ export const sous_traitance = [
     answer: 0,
   },
 ];
-export const engagement_a_lessai = [
+export const engagement_a_lessai: Question = [
   {
     question: "Qu'est-ce que l'engagement à l'essai ?",
     options: [
@@ -506,7 +512,7 @@ export const engagement_a_lessai = [
     answer: 0,
   },
 ];
-export const CDI = [
+export const CDI: Question = [
   {
     question: "Qu'est-ce qu'un contrat à durée indéterminée (CDI) ?",
     options: [
@@ -560,7 +566,7 @@ export const CDI = [
     answer: 0,
   },
 ];
-export const occasionnel = [
+export const occasionnel: Question = [
   {
     question: "Qu'est-ce qu'un travailleur occasionnel ou journalier ?",
     options: [
@@ -616,7 +622,7 @@ export const occasionnel = [
   },
 ];
 
-const questionTheme3 = [
+const questionTheme3: Question = [
   ...questionTheme3P1,
   ...contrat_a_duree_determine,
   ...travail_intérimaire,
@@ -627,7 +633,7 @@ const questionTheme3 = [
 ];
 
 //question du theme 4
-export const questionTheme4P1 = [
+export const questionTheme4P1: Question = [
   {
     question:
       "Selon l'article 600 de la Loi de l'embauche, comment est décrit le contrat de travail ?",
@@ -682,7 +688,7 @@ export const questionTheme4P1 = [
     answer: 0,
   },
 ];
-export const capaciteJuridique = [
+export const capaciteJuridique: Question = [
   {
     question:
       "Qui peut conclure un contrat de travail en vertu de la capacité juridique ?",
@@ -692,7 +698,7 @@ export const capaciteJuridique = [
       "c) Un adulte ayant des restrictions mentales.",
       "d) Un mineur non émancipé.",
     ],
-    answer: "b) Un mineur émancipé.",
+    answer: 1,
   },
   {
     question: "Qu’est-ce que l’émancipation d’un mineur ?",
@@ -702,11 +708,10 @@ export const capaciteJuridique = [
       "c) L’acte par lequel un mineur devient majeur dès 16 ans.",
       "d) L’acte par lequel un mineur perd sa capacité juridique.",
     ],
-    answer:
-      "a) L’acte juridique par lequel un mineur acquiert la pleine capacité d'exercice.",
+    answer: 0,
   },
 ];
-export const consentement = [
+export const consentement: Question = [
   {
     question: "Le consentement est valable lorsqu’il est donné :",
     options: [
@@ -715,7 +720,7 @@ export const consentement = [
       "c) Sous influence d’un tiers.",
       "d) Après plusieurs révisions du contrat.",
     ],
-    answer: "b) Librement, sans erreur, violence ni dol.",
+    answer: 1,
   },
   {
     question: "Le dol dans le consentement se définit par :",
@@ -725,10 +730,10 @@ export const consentement = [
       "c) Le silence d’une des parties.",
       "d) La modification du contrat à la signature.",
     ],
-    answer: "b) L’intention de tromper une partie sur un élément essentiel.",
+    answer: 1,
   },
 ];
-export const objet = [
+export const objet: Question = [
   {
     question:
       "Quelles sont les conséquences si l'objet du contrat de travail est illicite ?",
@@ -738,7 +743,7 @@ export const objet = [
       "c) Le contrat peut être validé par un tribunal.",
       "d) Le contrat est valide uniquement si les parties sont d'accord.",
     ],
-    answer: "a) Le contrat est nul et non avenu.",
+    answer: 0,
   },
   {
     question: "L'objet du contrat de travail doit être :",
@@ -748,10 +753,10 @@ export const objet = [
       "c) Licite, moral et conforme aux bonnes mœurs.",
       "d) Tout service payé à l’employeur.",
     ],
-    answer: "c) Licite, moral et conforme aux bonnes mœurs.",
+    answer: 2,
   },
 ];
-export const cause = [
+export const cause: Question = [
   {
     question: "La cause d’un contrat de travail doit être :",
     options: [
@@ -760,7 +765,7 @@ export const cause = [
       "c) Un objectif vague.",
       "d) Une cause d’intérêt personnel.",
     ],
-    answer: "a) Un but immédiat et licite.",
+    answer: 0,
   },
   {
     question: "Dans quel cas la cause du contrat est-elle non valide ?",
@@ -770,11 +775,11 @@ export const cause = [
       "c) Si elle est uniquement liée aux bénéfices financiers.",
       "d) Si elle est modifiable après signature.",
     ],
-    answer: "a) Si elle est contraire à l’ordre public ou illicite.",
+    answer: 0,
   },
 ];
 
-const questionTheme4 = [
+const questionTheme4: Question = [
   ...questionTheme4P1,
   ...capaciteJuridique,
   ...consentement,
@@ -783,7 +788,7 @@ const questionTheme4 = [
 ];
 
 //question du theme 5
-export const droitTravailleur = [
+export const droitTravailleur: Question = [
   {
     question: "Quel est le droit d’un salarié concernant son poste d'emploi ?",
     options: [
@@ -792,7 +797,7 @@ export const droitTravailleur = [
       "c) D'occuper le poste pour lequel il a été recruté.",
       "d) De changer son poste à tout moment.",
     ],
-    answer: "c) D'occuper le poste pour lequel il a été recruté.",
+    answer: 2,
   },
   {
     question: "Quel est le droit d'un salarié concernant son salaire ?",
@@ -802,7 +807,7 @@ export const droitTravailleur = [
       "c) Négocier son salaire à chaque mois.",
       "d) Accepter un salaire inférieur à celui prévu.",
     ],
-    answer: "b) Recevoir le salaire prévu dans le contrat.",
+    answer: 1,
   },
   {
     question: "Le salarié a-t-il le droit de choisir son syndicat ?",
@@ -812,7 +817,7 @@ export const droitTravailleur = [
       "c) Oui, mais seulement un syndicat dans son secteur.",
       "d) Non, il n’a pas le droit de choisir.",
     ],
-    answer: "a) Oui, il peut choisir librement son syndicat.",
+    answer: 0,
   },
   {
     question: "Un salarié a-t-il le droit d’aller en grève ?",
@@ -822,7 +827,7 @@ export const droitTravailleur = [
       "c) Oui, mais il doit en informer son employeur.",
       "d) Non, sauf si c’est une grève nationale.",
     ],
-    answer: "a) Oui, tant que la grève est légale.",
+    answer: 0,
   },
   {
     question:
@@ -833,7 +838,7 @@ export const droitTravailleur = [
       "c) Seulement droit au repos hebdomadaire.",
       "d) Seulement droit aux congés payés.",
     ],
-    answer: "b) Droit au repos hebdomadaire et aux congés payés.",
+    answer: 1,
   },
   {
     question:
@@ -844,10 +849,10 @@ export const droitTravailleur = [
       "c) Oui, mais seulement si les performances sont égales.",
       "d) Non, selon l'ancienneté de chacun.",
     ],
-    answer: "a) Oui, il doit être traité humainement et de manière égale.",
+    answer: 0,
   },
 ];
-export const devoirTravailleur = [
+export const devoirTravailleur: Question = [
   {
     question:
       "Quelles sont les obligations d’un travailleur concernant le salaire ?",
@@ -857,8 +862,7 @@ export const devoirTravailleur = [
       "c) Le salarié peut renégocier son salaire à tout moment.",
       "d) Le salarié n’a aucune obligation concernant le salaire.",
     ],
-    answer:
-      "b) Le salarié doit accepter les salaires prévus par les usages et la convention collective.",
+    answer: 1,
   },
   {
     question: "Comment un salarié doit-il exécuter son travail ?",
@@ -868,7 +872,7 @@ export const devoirTravailleur = [
       "c) Avec le minimum d’effort pour recevoir son salaire.",
       "d) Il n’a aucune obligation sur la manière d’exécuter son travail.",
     ],
-    answer: "a) Avec bonne foi, diligence et loyauté.",
+    answer: 0,
   },
   {
     question:
@@ -879,8 +883,7 @@ export const devoirTravailleur = [
       "c) Oui, mais seulement si cela lui convient.",
       "d) Non, il peut ignorer ces règlements.",
     ],
-    answer:
-      "a) Oui, il doit respecter les règles internes et les conventions collectives.",
+    answer: 0,
   },
   {
     question:
@@ -891,7 +894,7 @@ export const devoirTravailleur = [
       "c) Non, c'est un droit et non une obligation.",
       "d) Oui, mais uniquement pour du matériel de valeur.",
     ],
-    answer: "b) Oui, il doit en prendre soin.",
+    answer: 1,
   },
   {
     question: "Le salarié doit-il respecter le secret professionnel ?",
@@ -901,10 +904,10 @@ export const devoirTravailleur = [
       "c) Oui, mais seulement pour les informations sensibles.",
       "d) Non, sauf en cas d’urgence.",
     ],
-    answer: "a) Oui, il est tenu au secret professionnel.",
+    answer: 0,
   },
 ];
-export const pouvoirEmployeur = [
+export const pouvoirEmployeur: Question = [
   {
     question:
       "Quel pouvoir l'employeur possède-t-il concernant l'organisation du travail ?",
@@ -914,7 +917,7 @@ export const pouvoirEmployeur = [
       "c) Le pouvoir réglementaire.",
       "d) Aucun pouvoir sur l'organisation du travail.",
     ],
-    answer: "a) Le pouvoir directionnel.",
+    answer: 0,
   },
   {
     question:
@@ -925,7 +928,7 @@ export const pouvoirEmployeur = [
       "c) Le pouvoir réglementaire.",
       "d) Le pouvoir de décision.",
     ],
-    answer: "b) Le pouvoir disciplinaire.",
+    answer:1,
   },
   {
     question:
@@ -936,10 +939,10 @@ export const pouvoirEmployeur = [
       "c) Le pouvoir réglementaire.",
       "d) Le pouvoir de surveillance.",
     ],
-    answer: "c) Le pouvoir réglementaire.",
+    answer:2,
   },
 ];
-export const devoirEmployeur = [
+export const devoirEmployeur: Question = [
   {
     question:
       "Quelle obligation incombe à l'employeur concernant le travail du salarié ?",
@@ -949,7 +952,7 @@ export const devoirEmployeur = [
       "c) Assurer la formation continue de ses employés.",
       "d) Fournir des vacances au salarié.",
     ],
-    answer: "b) Fournir le travail convenu et les moyens de son exécution.",
+    answer: 1,
   },
   {
     question:
@@ -960,7 +963,7 @@ export const devoirEmployeur = [
       "c) Payer les salaires une fois par an.",
       "d) Seulement payer une prime de performance.",
     ],
-    answer: "a) Payer régulièrement le salaire dû.",
+    answer: 0,
   },
   {
     question:
@@ -971,7 +974,7 @@ export const devoirEmployeur = [
       "c) Des remboursements pour soins médicaux.",
       "d) Aucune contribution sociale n'est requise.",
     ],
-    answer: "b) Les cotisations légales à la CNSS.",
+    answer: 1,
   },
   {
     question:
@@ -982,7 +985,7 @@ export const devoirEmployeur = [
       "c) Ne rien imposer concernant la sécurité.",
       "d) Offrir une formation au bien-être.",
     ],
-    answer: "a) Respecter les règles d'hygiène et de sécurité au travail.",
+    answer: 0,
   },
   {
     question:
@@ -993,11 +996,21 @@ export const devoirEmployeur = [
       "c) Respecter uniquement les libertés publiques.",
       "d) Observer les employés en dehors du lieu de travail.",
     ],
-    answer:
-      "a) Respecter les libertés publiques et la vie privée du travailleur.",
+    answer: 0,
   },
 ];
 
-const questionTheme5 = [...droitTravailleur, ...devoirTravailleur, ...pouvoirEmployeur, ...devoirEmployeur];
+const questionTheme5 = [
+  ...droitTravailleur,
+  ...devoirTravailleur,
+  ...pouvoirEmployeur,
+  ...devoirEmployeur,
+];
 
-export { questionTheme1, questionTheme2, questionTheme3 , questionTheme4, questionTheme5};
+export {
+  questionTheme1,
+  questionTheme2,
+  questionTheme3,
+  questionTheme4,
+  questionTheme5,
+};
