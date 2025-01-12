@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Question from "@/components/Question";
 import Results from "@/components/Results";
 import { Button } from "@/components/ui/button";
+import { ChevronLeft } from 'lucide-react';
 import {
   questionTheme1,
   questionTheme2,
@@ -48,10 +49,14 @@ export default function Quiz({ theme, mode }: QuizProps) {
       };
     });
     setQuestions(shuffledQuestions);
+    setUserAnswers(new Array(shuffledQuestions.length).fill(null));
   }, []);
 
   const handleAnswer = (selectedAnswer: number | null) => {
-    setUserAnswers([...userAnswers, selectedAnswer]);
+    const newUserAnswers = [...userAnswers];
+    newUserAnswers[currentQuestion] = selectedAnswer;
+    setUserAnswers(newUserAnswers);
+
     if (
       selectedAnswer !== null &&
       selectedAnswer === questions[currentQuestion].answer
@@ -59,12 +64,26 @@ export default function Quiz({ theme, mode }: QuizProps) {
       setScore(score + 1);
     }
 
-    const nextQuestion = currentQuestion + 1;
-    if (nextQuestion < questions.length) {
-      setCurrentQuestion(nextQuestion);
-      setShowCorrectAnswer(false); // Reset the state when moving to the next question
+    if (currentQuestion < questions.length - 1) {
+      setCurrentQuestion(currentQuestion + 1);
+      setShowCorrectAnswer(false);
     } else {
+      // Calculate final score considering skipped questions as incorrect
+      const finalScore = newUserAnswers.reduce((acc: number, answer, index) => {
+        if (answer === questions[index].answer) {
+          return acc + 1;
+        }
+        return acc;
+      }, 0);
+      setScore(finalScore);
       setShowResults(true);
+    }
+  };
+
+  const goToPreviousQuestion = () => {
+    if (currentQuestion > 0) {
+      setCurrentQuestion(currentQuestion - 1);
+      setShowCorrectAnswer(false);
     }
   };
 
@@ -76,7 +95,7 @@ export default function Quiz({ theme, mode }: QuizProps) {
     setCurrentQuestion(0);
     setScore(0);
     setShowResults(false);
-    setUserAnswers([]);
+    setUserAnswers(new Array(questions.length).fill(null));
   };
 
   return (
@@ -100,7 +119,23 @@ export default function Quiz({ theme, mode }: QuizProps) {
             onAnswer={handleAnswer}
             currentQuestion={currentQuestion + 1}
             totalQuestions={questions.length}
+            selectedAnswer={userAnswers[currentQuestion]}
           />
+          <div className="mt-4 flex justify-between">
+            <Button 
+              onClick={goToPreviousQuestion} 
+              disabled={currentQuestion === 0}
+              className="flex items-center"
+            >
+              <ChevronLeft className="mr-2" /> Question précédente
+            </Button>
+            <Button 
+              onClick={() => handleAnswer(null)}
+              className="flex items-center"
+            >
+              Passer la question
+            </Button>
+          </div>
           {mode === "apprentissage" && (
             <div className="mt-4">
               <Button onClick={toggleCorrectAnswer} className="w-full">
