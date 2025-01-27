@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button"
 
 interface ThemeSelectorProps {
-  onThemeSelect: (theme: number) => void;
+  onThemeSelect: (theme: number,themeName: string) => void;
 }
 
 const themes = [
@@ -12,6 +12,9 @@ const themes = [
   { id: 5, name: "Thème 5" },
   { id: 6, name: "Thème 6" },
   { id: 7, name: "Thème 7" },
+  { id: 8, name: "Formules" },
+  { id: 9, name: "math" },
+  { id: 10, name: "OSI" },
 ];
 
 export default function ThemeSelector({ onThemeSelect }: ThemeSelectorProps) {
@@ -22,7 +25,7 @@ export default function ThemeSelector({ onThemeSelect }: ThemeSelectorProps) {
         {themes.map((theme) => (
           <Button
             key={theme.id}
-            onClick={() => onThemeSelect(theme.id)}
+            onClick={() => {onThemeSelect(theme.id,theme.name) } }
             className="w-full text-lg py-4"
           >
             {theme.name}

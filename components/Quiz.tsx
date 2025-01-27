@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { lazy, useEffect, useState } from "react";
 import Question from "@/components/Question";
 import Results from "@/components/Results";
 import { Button } from "@/components/ui/button";
@@ -12,18 +12,24 @@ import {
   questionTheme5,
   questionTheme6,
   questionTheme7,
+  formules,
+  mathQuestions,
+  OSI
 } from "@/public/question";
 
 interface QuizProps {
   theme: number;
   mode: "apprentissage" | "devoir";
+  themeName: string;
 }
 
-export default function Quiz({ theme, mode }: QuizProps) {
+export default function Quiz({ theme, mode , themeName }: QuizProps) {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
   const [showResults, setShowResults] = useState(false);
   const [userAnswers, setUserAnswers] = useState<(number | null)[]>([]);
+  const [showCorrectAnswer, setShowCorrectAnswer] = useState(false);
+  
   const [questions, setQuestions] = useState(() => {
     switch (theme) {
       case 1: return questionTheme1;
@@ -33,10 +39,12 @@ export default function Quiz({ theme, mode }: QuizProps) {
       case 5: return questionTheme5;
       case 6: return questionTheme6;
       case 7: return questionTheme7;
+      case 8: return formules;
+      case 9: return mathQuestions;
+      case 10: return OSI;
       default: return questionTheme1;
     }
   });
-  const [showCorrectAnswer, setShowCorrectAnswer] = useState(false);
 
   useEffect(() => {
     const shuffledQuestions = questions.map((q) => {
@@ -101,7 +109,7 @@ export default function Quiz({ theme, mode }: QuizProps) {
   return (
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold mb-6 text-center">
-        Quiz sur le Droit du Travail - Thème {theme}
+        Quiz sur le Droit du Travail - {themeName}
       </h1>
       {showResults ? (
         <Results

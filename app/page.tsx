@@ -7,8 +7,10 @@ import { Button } from "@/components/ui/button";
 export default function Home() {
   const [selectedTheme, setSelectedTheme] = useState<number | null>(null);
   const [mode, setMode] = useState<"apprentissage" | "devoir">("apprentissage");
-  const handleThemeSelect = (theme: number) => {
+  const [themeName, setThemeName] = useState<string>("");
+  const handleThemeSelect = (theme: number,themeName:string) => {
     setSelectedTheme(theme);
+    setThemeName(themeName);
   };
 
   return (
@@ -31,7 +33,7 @@ export default function Home() {
       ) : (
         <>
           <h3> vous etes en mode <span className="text-red-700">{mode}</span></h3>
-          <Quiz theme={selectedTheme} mode={mode} />
+          <Quiz theme={selectedTheme} mode={mode} themeName={themeName} />
           <Button onClick={() => setSelectedTheme(null)} className="mb-8">
             Choisir le theme
           </Button>
