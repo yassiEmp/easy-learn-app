@@ -15,7 +15,7 @@ import {
   formules,
   mathQuestions,
   OSI
-} from "@/public/question";
+} from "@/assets/question";
 
 interface QuizProps {
   theme: number;

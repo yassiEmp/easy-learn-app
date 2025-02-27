@@ -1,10 +1,11 @@
-type Question = {
+export type Question ={
   question: string;
   options: string[];
   answer: number;
-}[];
+}
+export type QuestionArray = Question[];
 
-const questionTheme1: Question = [
+const questionTheme1: QuestionArray =[
   {
     question:
       "Quels sont les trois éléments principaux encadrés par le droit du travail ?",
@@ -93,7 +94,7 @@ const questionTheme1: Question = [
   },
 ];
 
-const questionTheme2: Question = [
+const questionTheme2: QuestionArray =[
   {
     question: "Quelle est la définition du contrat de travail ?",
     options: [
@@ -221,9 +222,8 @@ const questionTheme2: Question = [
     answer: 1,
   },
 ];
-
 //question du theme 3
-export const questionTheme3P1: Question = [
+const questionTheme3P1: QuestionArray =[
   {
     question: "Quelle est la définition du contrat à durée déterminée ?",
     options: [
@@ -286,7 +286,7 @@ export const questionTheme3P1: Question = [
     answer: 0,
   },
 ];
-export const contrat_a_duree_determine: Question = [
+const contrat_a_duree_determine: QuestionArray =[
   {
     question: "Qu'est-ce qu'un contrat de travail à temps partiel ?",
     options: [
@@ -341,7 +341,7 @@ export const contrat_a_duree_determine: Question = [
     answer: 0,
   },
 ];
-export const travail_intérimaire: Question = [
+const travail_intérimaire: QuestionArray =[
   {
     question: "Qu'est-ce que le travail intérimaire ?",
     options: [
@@ -394,7 +394,7 @@ export const travail_intérimaire: Question = [
     answer: 0,
   },
 ];
-export const sous_traitance: Question = [
+const sous_traitance: QuestionArray =[
   {
     question: "Qu'est-ce qu'un contrat de sous-traitance ?",
     options: [
@@ -448,7 +448,7 @@ export const sous_traitance: Question = [
     answer: 0,
   },
 ];
-export const engagement_a_lessai: Question = [
+const engagement_a_lessai: QuestionArray =[
   {
     question: "Qu'est-ce que l'engagement à l'essai ?",
     options: [
@@ -512,7 +512,7 @@ export const engagement_a_lessai: Question = [
     answer: 0,
   },
 ];
-export const CDI: Question = [
+const CDI: QuestionArray =[
   {
     question: "Qu'est-ce qu'un contrat à durée indéterminée (CDI) ?",
     options: [
@@ -566,7 +566,7 @@ export const CDI: Question = [
     answer: 0,
   },
 ];
-export const occasionnel: Question = [
+const occasionnel: QuestionArray =[
   {
     question: "Qu'est-ce qu'un travailleur occasionnel ou journalier ?",
     options: [
@@ -622,7 +622,7 @@ export const occasionnel: Question = [
   },
 ];
 
-const questionTheme3: Question = [
+const questionTheme3: QuestionArray =[
   ...questionTheme3P1,
   ...contrat_a_duree_determine,
   ...travail_intérimaire,
@@ -633,7 +633,7 @@ const questionTheme3: Question = [
 ];
 
 //question du theme 4
-export const questionTheme4P1: Question = [
+const questionTheme4P1: QuestionArray =[
   {
     question:
       "Selon l'article 600 de la Loi de l'embauche, comment est décrit le contrat de travail ?",
@@ -688,7 +688,7 @@ export const questionTheme4P1: Question = [
     answer: 0,
   },
 ];
-export const capaciteJuridique: Question = [
+const capaciteJuridique: QuestionArray =[
   {
     question:
       "Qui peut conclure un contrat de travail en vertu de la capacité juridique ?",
@@ -711,7 +711,7 @@ export const capaciteJuridique: Question = [
     answer: 0,
   },
 ];
-export const consentement: Question = [
+const consentement: QuestionArray =[
   {
     question: "Le consentement est valable lorsqu’il est donné :",
     options: [
@@ -733,7 +733,7 @@ export const consentement: Question = [
     answer: 1,
   },
 ];
-export const objet: Question = [
+const objet: QuestionArray =[
   {
     question:
       "Quelles sont les conséquences si l'objet du contrat de travail est illicite ?",
@@ -756,7 +756,7 @@ export const objet: Question = [
     answer: 2,
   },
 ];
-export const cause: Question = [
+const cause: QuestionArray =[
   {
     question: "La cause d’un contrat de travail doit être :",
     options: [
@@ -779,7 +779,7 @@ export const cause: Question = [
   },
 ];
 
-const questionTheme4: Question = [
+const questionTheme4: QuestionArray =[
   ...questionTheme4P1,
   ...capaciteJuridique,
   ...consentement,
@@ -788,7 +788,7 @@ const questionTheme4: Question = [
 ];
 
 //question du theme 5
-export const droitTravailleur: Question = [
+const droitTravailleur: QuestionArray =[
   {
     question: "Quel est le droit d’un salarié concernant son poste d'emploi ?",
     options: [
@@ -852,7 +852,7 @@ export const droitTravailleur: Question = [
     answer: 0,
   },
 ];
-export const devoirTravailleur: Question = [
+const devoirTravailleur: QuestionArray =[
   {
     question:
       "Quelles sont les obligations d’un travailleur concernant le salaire ?",
@@ -907,7 +907,7 @@ export const devoirTravailleur: Question = [
     answer: 0,
   },
 ];
-export const pouvoirEmployeur: Question = [
+const pouvoirEmployeur: QuestionArray =[
   {
     question:
       "Quel pouvoir l'employeur possède-t-il concernant l'organisation du travail ?",
@@ -942,7 +942,7 @@ export const pouvoirEmployeur: Question = [
     answer: 2,
   },
 ];
-export const devoirEmployeur: Question = [
+const devoirEmployeur: QuestionArray =[
   {
     question:
       "Quelle obligation incombe à l'employeur concernant le travail du salarié ?",
@@ -1008,7 +1008,7 @@ const questionTheme5 = [
 ];
 
 //question du theme 6
-export const cessationContratTravail: Question = [
+const cessationContratTravail: QuestionArray =[
   {
     question: "Qu'est-ce que la suspension du contrat de travail ?",
     options: [
@@ -1074,7 +1074,7 @@ export const cessationContratTravail: Question = [
     answer: 0,
   },
 ];
-export const ruptureContratTravail: Question = [
+const ruptureContratTravail: QuestionArray =[
   {
     question: "Qu'est-ce que la rupture du contrat de travail ?",
     options: [
@@ -1137,7 +1137,7 @@ export const ruptureContratTravail: Question = [
     answer: 0,
   },
 ];
-export const causesRuptureCDI: Question = [
+const causesRuptureCDI: QuestionArray =[
   {
     question:
       "Quelles sont les causes de la rupture d'un contrat à durée indéterminée (CDI) ?",
@@ -1193,7 +1193,7 @@ export const causesRuptureCDI: Question = [
     answer: 3,
   },
 ];
-export const licenciementProcedures: Question = [
+const licenciementProcedures: QuestionArray =[
   {
     question: "Quelle est la différence entre licenciement et démission ?",
     options: [
@@ -1298,7 +1298,7 @@ export const licenciementProcedures: Question = [
   },
 ];
 
-const questionTheme6: Question = [
+const questionTheme6: QuestionArray =[
   ...cessationContratTravail,
   ...ruptureContratTravail,
   ...causesRuptureCDI,
@@ -1306,7 +1306,7 @@ const questionTheme6: Question = [
 ];
 
 //question du theme 7
-export const dureeTravail: Question = [
+const dureeTravail: QuestionArray =[
   {
     question: "Quelle est la durée légale de travail par semaine ?",
     options: [
@@ -1395,7 +1395,7 @@ export const dureeTravail: Question = [
   },
 ];
 
-export const heuresEquivalence: Question = [
+const heuresEquivalence: QuestionArray =[
   {
     question: "Que sont les heures d'équivalence ?",
     options: [
@@ -1430,7 +1430,7 @@ export const heuresEquivalence: Question = [
   },
 ];
 
-export const heuresRecuperation: Question = [
+const heuresRecuperation: QuestionArray =[
   {
     question: "Que sont les heures de récupération ?",
     options: [
@@ -1464,7 +1464,7 @@ export const heuresRecuperation: Question = [
   },
 ];
 
-export const modulationRepos: Question = [
+const modulationRepos: QuestionArray =[
   {
     question: "Qu'est-ce que la modulation du temps de travail ?",
     options: [
@@ -1518,7 +1518,7 @@ export const modulationRepos: Question = [
   },
 ];
 
-export const congésTravailleurs: Question = [
+const congésTravailleurs: QuestionArray =[
   {
     question: "Qu'est-ce qu'un congé dû à une maladie ?",
     options: [
@@ -1569,12 +1569,344 @@ export const congésTravailleurs: Question = [
   },
 ];
 
-const questionTheme7: Question = [
+const questionTheme7: QuestionArray =[
   ...dureeTravail,
   ...heuresEquivalence,
   ...heuresRecuperation,
   ...modulationRepos,
   ...congésTravailleurs,
+];
+
+const formules: QuestionArray =[
+  {
+    question:
+      "Quelle est la formule pour calculer les heures supplémentaires (HS) ?",
+    options: [
+      "a) HS = Heures légales - Heures travaillées",
+      "b) HS = Heures travaillées - Heures légales",
+      "c) HS = (Heures travaillées + Heures légales) ÷ 2",
+      "d) HS = Heures travaillées × Heures légales",
+    ],
+    answer: 1,
+  },
+  {
+    question:
+      "Si un employé a travaillé 50 heures en une semaine, combien d'heures supplémentaires a-t-il effectuées si la durée légale est de 40 heures ?",
+    options: ["a) 8 heures", "b) 10 heures", "c) 12 heures", "d) 15 heures"],
+    answer: 1,
+  },
+  {
+    question:
+      "Quelle est la formule pour calculer la rémunération des heures supplémentaires majorées à 50 % ?",
+    options: [
+      "a) Rémunération = Heures supplémentaires × Taux horaire",
+      "b) Rémunération = Heures supplémentaires × Taux horaire × 1.5",
+      "c) Rémunération = Heures supplémentaires × Taux horaire × 2",
+      "d) Rémunération = Heures supplémentaires × Taux horaire × 0.5",
+    ],
+    answer: 1,
+  },
+  {
+    question:
+      "Un employé travaille 45 heures dans une semaine. Si son taux horaire est de 10 €, combien gagne-t-il pour 5 heures supplémentaires à 12 % de majoration ?",
+    options: ["a) 50 €", "b) 56 €", "c) 60 €", "d) 70 €"],
+    answer: 1,
+  },
+  {
+    question:
+      "Comment calcule-t-on la rémunération pour les heures de nuit à 50 % de majoration ?",
+    options: [
+      "a) Rémunération = Heures de nuit × Taux horaire × 1.5",
+      "b) Rémunération = Heures de nuit × Taux horaire × 0.5",
+      "c) Rémunération = Heures de nuit × Taux horaire × 2",
+      "d) Rémunération = Heures de nuit × Taux horaire",
+    ],
+    answer: 0,
+  },
+  {
+    question:
+      "Quelle est la durée hebdomadaire maximale de travail autorisée sans heures supplémentaires ?",
+    options: ["a) 35 heures", "b) 40 heures", "c) 45 heures", "d) 48 heures"],
+    answer: 1,
+  },
+  {
+    question:
+      "Quelle est la formule pour calculer les heures équivalentes dans un secteur avec des temps morts ?",
+    options: [
+      "a) Heures équivalentes = Heures travaillées - Temps morts",
+      "b) Heures équivalentes = Heures travaillées + Temps morts",
+      "c) Heures équivalentes = (Heures travaillées × 2) - Temps morts",
+      "d) Heures équivalentes = Heures légales ÷ Temps morts",
+    ],
+    answer: 1,
+  },
+  {
+    question:
+      "Un employé a travaillé 6 heures un dimanche et 4 heures de nuit ce jour-là. Si le taux horaire est de 12 €, quelle est la rémunération totale avec une majoration de 50 % pour le jour et 100 % pour la nuit ?",
+    options: ["a) 108 €", "b) 144 €", "c) 204 €", "d) 192 €"],
+    answer: 2,
+  },
+  {
+    question:
+      "Quelle est la limite annuelle des heures supplémentaires au-delà de laquelle une majoration de 35 % s'applique ?",
+    options: [
+      "a) 400 heures",
+      "b) 420 heures",
+      "c) 480 heures",
+      "d) 500 heures",
+    ],
+    answer: 2,
+  },
+  {
+    question:
+      "Si un employé effectue 20 heures supplémentaires sur un mois avec un taux horaire de 15 €, combien gagnera-t-il si la majoration est de 12 % ?",
+    options: ["a) 300 €", "b) 320 €", "c) 336 €", "d) 340 €"],
+    answer: 2,
+  },
+  {
+    question:
+      "Comment calcule-t-on le temps de récupération pour un travailleur en cas de force majeure ?",
+    options: [
+      "a) Temps récupéré = Heures perdues - Heures travaillées",
+      "b) Temps récupéré = Heures perdues × Taux horaire",
+      "c) Temps récupéré = Heures perdues",
+      "d) Temps récupéré = Heures perdues + Heures supplémentaires",
+    ],
+    answer: 2,
+  },
+  {
+    question:
+      "Un employé a travaillé 10 heures de nuit sur un jour férié. Si son taux horaire est de 20 €, combien gagne-t-il avec une majoration de 100 % ?",
+    options: ["a) 200 €", "b) 300 €", "c) 400 €", "d) 500 €"],
+    answer: 2,
+  },
+];
+
+const mathQuestions: QuestionArray =[
+  // Fonction définie
+  {
+    question: "Qu'est-ce qu'une fonction ?",
+    options: [
+      "Un ensemble de points aléatoires.",
+      "Une relation qui associe à chaque élément d'un ensemble un unique élément d'un autre ensemble.",
+      "Un tableau de valeurs numériques.",
+      "Un graphe représentant une droite.",
+    ],
+    answer: 1,
+  },
+
+  // Limite d'une fonction
+  {
+    question: "La limite de f(x) lorsque x tend vers a existe si :",
+    options: [
+      "Les limites à gauche et à droite sont égales.",
+      "La fonction est périodique.",
+      "La fonction est constante.",
+      "Il n'y a pas de valeurs interdites pour x.",
+    ],
+    answer: 0,
+  },
+
+  // Continuité en un point
+  {
+    question: "Une fonction est continue en x = a si :",
+    options: [
+      "f(a) n'est pas défini.",
+      "f(a) est défini, sa limite existe, et elles sont égales.",
+      "La dérivée de f(x) existe en a.",
+      "La fonction est croissante en a.",
+    ],
+    answer: 1,
+  },
+
+  // Asymptote verticale
+  {
+    question: "Une asymptote verticale existe en x = a si :",
+    options: [
+      "La fonction tend vers une constante lorsque x tend vers a.",
+      "La fonction tend vers l'infini ou moins l'infini lorsque x tend vers a.",
+      "La fonction est périodique.",
+      "La dérivée seconde de la fonction est nulle.",
+    ],
+    answer: 1,
+  },
+
+  // Asymptote horizontale
+  {
+    question:
+      "Si la limite de f(x) lorsque x \\to \\infty est une constante L, alors :",
+    options: [
+      "La fonction a une asymptote verticale.",
+      "La fonction a une asymptote horizontale.",
+      "La fonction n'a pas d'asymptote.",
+      "La fonction est linéaire.",
+    ],
+    answer: 1,
+  },
+
+  // Asymptote oblique
+  {
+    question: "Une asymptote oblique existe si :",
+    options: [
+      "La limite de la fonction est infinie.",
+      "La limite de la fonction est finie.",
+      "Le rapport f(x)/x tend vers une constante non nulle lorsque x \\to \\infty.",
+      "La fonction est définie par morceaux.",
+    ],
+    answer: 2,
+  },
+
+  // Limites infinies
+  {
+    question: "Une limite infinie indique que :",
+    options: [
+      "La fonction tend vers une constante infiniment grande.",
+      "La fonction devient arbitrairement grande en valeur absolue.",
+      "La fonction a une asymptote horizontale.",
+      "La fonction est croissante strictement.",
+    ],
+    answer: 1,
+  },
+
+  // Dérivabilité et continuité
+  {
+    question: "Si une fonction est dérivable en x = a, alors :",
+    options: [
+      "Elle est toujours continue en x = a.",
+      "Elle n'est pas continue en x = a.",
+      "Elle a une asymptote verticale en x = a.",
+      "Elle est croissante en x = a.",
+    ],
+    answer: 0,
+  },
+
+  // Fonction définie par morceaux
+  {
+    question: "Pour une fonction définie par morceaux, elle est continue si :",
+    options: [
+      "Les limites à gauche et à droite sont égales à chaque point de raccord.",
+      "Les limites à gauche et à droite existent mais ne sont pas égales.",
+      "Elle n'a pas de point de raccord.",
+      "Elle est périodique.",
+    ],
+    answer: 0,
+  },
+
+  // Fonction constante
+  {
+    question:
+      "Quelle est une propriété caractéristique d'une fonction constante ?",
+    options: [
+      "Sa pente est nulle en tout point.",
+      "Elle a une asymptote oblique.",
+      "Elle est toujours discontinue.",
+      "Elle est dérivable uniquement en un point.",
+    ],
+    answer: 0,
+  },
+];
+
+const OSI: QuestionArray =[
+  {
+    question: "Qu'est-ce que le modèle OSI ?",
+    options: [
+      "Un protocole réseau spécifique",
+      "Un modèle de référence en sept couches pour les communications réseau",
+      "Un système d'exploitation",
+      "Un logiciel de gestion de réseaux",
+    ],
+    answer: 1, // Index de la réponse correcte (0-based)
+  },
+  {
+    question:
+      "Quelle est la principale fonction de la couche physique dans le modèle OSI ?",
+    options: [
+      "Assurer la connectivité et le transfert des données brutes entre les appareils",
+      "Gérer l'adressage IP et l'acheminement des paquets",
+      "Fournir des interfaces pour les applications",
+      "Garantir une transmission sécurisée des données",
+    ],
+    answer: 0,
+  },
+  {
+    question: "Quel est le rôle principal de la couche de liaison de données ?",
+    options: [
+      "Gérer les connexions entre applications",
+      "Régler les erreurs de transmission et contrôler l'accès au média",
+      "Acheminer les paquets sur différents réseaux",
+      "Fournir des services aux utilisateurs finaux",
+    ],
+    answer: 1,
+  },
+  {
+    question:
+      "Quelle couche est responsable de l'acheminement des paquets entre différents réseaux ?",
+    options: [
+      "Couche application",
+      "Couche transport",
+      "Couche réseau",
+      "Couche session",
+    ],
+    answer: 2,
+  },
+  {
+    question: "Quel est le rôle de la couche transport dans le modèle OSI ?",
+    options: [
+      "Gérer l'adressage physique",
+      "Assurer un transfert de données fiable et ordonné entre les hôtes",
+      "Fournir une interface utilisateur pour les données réseau",
+      "Acheminer les paquets à travers les routeurs",
+    ],
+    answer: 1,
+  },
+  {
+    question:
+      "Quelle couche du modèle OSI est responsable de l'ouverture, la gestion et la fermeture des sessions entre deux applications ?",
+    options: [
+      "Couche physique",
+      "Couche session",
+      "Couche transport",
+      "Couche présentation",
+    ],
+    answer: 1,
+  },
+  {
+    question: "La couche présentation sert principalement à :",
+    options: [
+      "Acheminer les paquets",
+      "Fournir des services applicatifs",
+      "Convertir les données entre le format de l'application et le format réseau",
+      "Assurer un transport fiable des données",
+    ],
+    answer: 2,
+  },
+  {
+    question: "Quel est le rôle de la couche application dans le modèle OSI ?",
+    options: [
+      "Fournir une interface utilisateur pour accéder aux services réseau",
+      "Gérer les sessions entre applications",
+      "Acheminer les données entre les réseaux",
+      "Contrôler les erreurs de transmission",
+    ],
+    answer: 0,
+  },
+  {
+    question:
+      "Quel protocole fonctionne principalement dans la couche transport ?",
+    options: ["HTTP", "TCP", "Ethernet", "DNS"],
+    answer: 1,
+  },
+  {
+    question:
+      "Dans quel ordre les données traversent-elles les couches du modèle OSI lorsqu'elles sont transmises ?",
+    options: [
+      "Application -> Physique -> Réseau -> Transport -> Présentation",
+      "Physique -> Liaison de données -> Réseau -> Transport -> Session -> Présentation -> Application",
+      "Application -> Présentation -> Session -> Transport -> Réseau -> Liaison de données -> Physique",
+      "Session -> Transport -> Présentation -> Physique -> Liaison de données",
+    ],
+    answer: 2,
+  },
 ];
 
 export {
@@ -1585,352 +1917,7 @@ export {
   questionTheme5,
   questionTheme6,
   questionTheme7,
+  formules,
+  mathQuestions,
+  OSI,
 };
-
-export const formules: Question = [
-  {
-    question: "Quelle est la formule pour calculer les heures supplémentaires (HS) ?",
-    options: [
-      "a) HS = Heures légales - Heures travaillées",
-      "b) HS = Heures travaillées - Heures légales",
-      "c) HS = (Heures travaillées + Heures légales) ÷ 2",
-      "d) HS = Heures travaillées × Heures légales",
-    ],
-    answer: 1,
-  },
-  {
-    question: "Si un employé a travaillé 50 heures en une semaine, combien d'heures supplémentaires a-t-il effectuées si la durée légale est de 40 heures ?",
-    options: [
-      "a) 8 heures",
-      "b) 10 heures",
-      "c) 12 heures",
-      "d) 15 heures",
-    ],
-    answer: 1,
-  },
-  {
-    question: "Quelle est la formule pour calculer la rémunération des heures supplémentaires majorées à 50 % ?",
-    options: [
-      "a) Rémunération = Heures supplémentaires × Taux horaire",
-      "b) Rémunération = Heures supplémentaires × Taux horaire × 1.5",
-      "c) Rémunération = Heures supplémentaires × Taux horaire × 2",
-      "d) Rémunération = Heures supplémentaires × Taux horaire × 0.5",
-    ],
-    answer: 1,
-  },
-  {
-    question: "Un employé travaille 45 heures dans une semaine. Si son taux horaire est de 10 €, combien gagne-t-il pour 5 heures supplémentaires à 12 % de majoration ?",
-    options: [
-      "a) 50 €",
-      "b) 56 €",
-      "c) 60 €",
-      "d) 70 €",
-    ],
-    answer: 1,
-  },
-  {
-    question: "Comment calcule-t-on la rémunération pour les heures de nuit à 50 % de majoration ?",
-    options: [
-      "a) Rémunération = Heures de nuit × Taux horaire × 1.5",
-      "b) Rémunération = Heures de nuit × Taux horaire × 0.5",
-      "c) Rémunération = Heures de nuit × Taux horaire × 2",
-      "d) Rémunération = Heures de nuit × Taux horaire",
-    ],
-    answer: 0,
-  },
-  {
-    question: "Quelle est la durée hebdomadaire maximale de travail autorisée sans heures supplémentaires ?",
-    options: [
-      "a) 35 heures",
-      "b) 40 heures",
-      "c) 45 heures",
-      "d) 48 heures",
-    ],
-    answer: 1,
-  },
-  {
-    question: "Quelle est la formule pour calculer les heures équivalentes dans un secteur avec des temps morts ?",
-    options: [
-      "a) Heures équivalentes = Heures travaillées - Temps morts",
-      "b) Heures équivalentes = Heures travaillées + Temps morts",
-      "c) Heures équivalentes = (Heures travaillées × 2) - Temps morts",
-      "d) Heures équivalentes = Heures légales ÷ Temps morts",
-    ],
-    answer: 1,
-  },
-  {
-    question: "Un employé a travaillé 6 heures un dimanche et 4 heures de nuit ce jour-là. Si le taux horaire est de 12 €, quelle est la rémunération totale avec une majoration de 50 % pour le jour et 100 % pour la nuit ?",
-    options: [
-      "a) 108 €",
-      "b) 144 €",
-      "c) 204 €",
-      "d) 192 €",
-    ],
-    answer: 2,
-  },
-  {
-    question: "Quelle est la limite annuelle des heures supplémentaires au-delà de laquelle une majoration de 35 % s'applique ?",
-    options: [
-      "a) 400 heures",
-      "b) 420 heures",
-      "c) 480 heures",
-      "d) 500 heures",
-    ],
-    answer: 2,
-  },
-  {
-    question: "Si un employé effectue 20 heures supplémentaires sur un mois avec un taux horaire de 15 €, combien gagnera-t-il si la majoration est de 12 % ?",
-    options: [
-      "a) 300 €",
-      "b) 320 €",
-      "c) 336 €",
-      "d) 340 €",
-    ],
-    answer: 2,
-  },
-  {
-    question: "Comment calcule-t-on le temps de récupération pour un travailleur en cas de force majeure ?",
-    options: [
-      "a) Temps récupéré = Heures perdues - Heures travaillées",
-      "b) Temps récupéré = Heures perdues × Taux horaire",
-      "c) Temps récupéré = Heures perdues",
-      "d) Temps récupéré = Heures perdues + Heures supplémentaires",
-    ],
-    answer: 2,
-  },
-  {
-    question: "Un employé a travaillé 10 heures de nuit sur un jour férié. Si son taux horaire est de 20 €, combien gagne-t-il avec une majoration de 100 % ?",
-    options: [
-      "a) 200 €",
-      "b) 300 €",
-      "c) 400 €",
-      "d) 500 €",
-    ],
-    answer: 2,
-  },
-];
-
-export const mathQuestions: Question = [
-  // Fonction définie
-  {
-    question: "Qu'est-ce qu'une fonction ?",
-    options: [
-      "Un ensemble de points aléatoires.",
-      "Une relation qui associe à chaque élément d'un ensemble un unique élément d'un autre ensemble.",
-      "Un tableau de valeurs numériques.",
-      "Un graphe représentant une droite."
-    ],
-    answer: 1
-  },
-
-  // Limite d'une fonction
-  {
-    question: "La limite de f(x) lorsque x tend vers a existe si :",
-    options: [
-      "Les limites à gauche et à droite sont égales.",
-      "La fonction est périodique.",
-      "La fonction est constante.",
-      "Il n'y a pas de valeurs interdites pour x."
-    ],
-    answer: 0
-  },
-
-  // Continuité en un point
-  {
-    question: "Une fonction est continue en x = a si :",
-    options: [
-      "f(a) n'est pas défini.",
-      "f(a) est défini, sa limite existe, et elles sont égales.",
-      "La dérivée de f(x) existe en a.",
-      "La fonction est croissante en a."
-    ],
-    answer: 1
-  },
-
-  // Asymptote verticale
-  {
-    question: "Une asymptote verticale existe en x = a si :",
-    options: [
-      "La fonction tend vers une constante lorsque x tend vers a.",
-      "La fonction tend vers l'infini ou moins l'infini lorsque x tend vers a.",
-      "La fonction est périodique.",
-      "La dérivée seconde de la fonction est nulle."
-    ],
-    answer: 1
-  },
-
-  // Asymptote horizontale
-  {
-    question: "Si la limite de f(x) lorsque x \\to \\infty est une constante L, alors :",
-    options: [
-      "La fonction a une asymptote verticale.",
-      "La fonction a une asymptote horizontale.",
-      "La fonction n'a pas d'asymptote.",
-      "La fonction est linéaire."
-    ],
-    answer: 1
-  },
-
-  // Asymptote oblique
-  {
-    question: "Une asymptote oblique existe si :",
-    options: [
-      "La limite de la fonction est infinie.",
-      "La limite de la fonction est finie.",
-      "Le rapport f(x)/x tend vers une constante non nulle lorsque x \\to \\infty.",
-      "La fonction est définie par morceaux."
-    ],
-    answer: 2
-  },
-
-  // Limites infinies
-  {
-    question: "Une limite infinie indique que :",
-    options: [
-      "La fonction tend vers une constante infiniment grande.",
-      "La fonction devient arbitrairement grande en valeur absolue.",
-      "La fonction a une asymptote horizontale.",
-      "La fonction est croissante strictement."
-    ],
-    answer: 1
-  },
-
-  // Dérivabilité et continuité
-  {
-    question: "Si une fonction est dérivable en x = a, alors :",
-    options: [
-      "Elle est toujours continue en x = a.",
-      "Elle n'est pas continue en x = a.",
-      "Elle a une asymptote verticale en x = a.",
-      "Elle est croissante en x = a."
-    ],
-    answer: 0
-  },
-
-  // Fonction définie par morceaux
-  {
-    question: "Pour une fonction définie par morceaux, elle est continue si :",
-    options: [
-      "Les limites à gauche et à droite sont égales à chaque point de raccord.",
-      "Les limites à gauche et à droite existent mais ne sont pas égales.",
-      "Elle n'a pas de point de raccord.",
-      "Elle est périodique."
-    ],
-    answer: 0
-  },
-
-  // Fonction constante
-  {
-    question: "Quelle est une propriété caractéristique d'une fonction constante ?",
-    options: [
-      "Sa pente est nulle en tout point.",
-      "Elle a une asymptote oblique.",
-      "Elle est toujours discontinue.",
-      "Elle est dérivable uniquement en un point."
-    ],
-    answer: 0
-  },
-];
-
-export const OSI: Question = [
-  {
-    question: "Qu'est-ce que le modèle OSI ?",
-    options: [
-      "Un protocole réseau spécifique",
-      "Un modèle de référence en sept couches pour les communications réseau",
-      "Un système d'exploitation",
-      "Un logiciel de gestion de réseaux"
-    ],
-    answer: 1, // Index de la réponse correcte (0-based)
-  },
-  {
-    question: "Quelle est la principale fonction de la couche physique dans le modèle OSI ?",
-    options: [
-      "Assurer la connectivité et le transfert des données brutes entre les appareils",
-      "Gérer l'adressage IP et l'acheminement des paquets",
-      "Fournir des interfaces pour les applications",
-      "Garantir une transmission sécurisée des données"
-    ],
-    answer: 0,
-  },
-  {
-    question: "Quel est le rôle principal de la couche de liaison de données ?",
-    options: [
-      "Gérer les connexions entre applications",
-      "Régler les erreurs de transmission et contrôler l'accès au média",
-      "Acheminer les paquets sur différents réseaux",
-      "Fournir des services aux utilisateurs finaux"
-    ],
-    answer: 1,
-  },
-  {
-    question: "Quelle couche est responsable de l'acheminement des paquets entre différents réseaux ?",
-    options: [
-      "Couche application",
-      "Couche transport",
-      "Couche réseau",
-      "Couche session"
-    ],
-    answer: 2,
-  },
-  {
-    question: "Quel est le rôle de la couche transport dans le modèle OSI ?",
-    options: [
-      "Gérer l'adressage physique",
-      "Assurer un transfert de données fiable et ordonné entre les hôtes",
-      "Fournir une interface utilisateur pour les données réseau",
-      "Acheminer les paquets à travers les routeurs"
-    ],
-    answer: 1,
-  },
-  {
-    question: "Quelle couche du modèle OSI est responsable de l'ouverture, la gestion et la fermeture des sessions entre deux applications ?",
-    options: [
-      "Couche physique",
-      "Couche session",
-      "Couche transport",
-      "Couche présentation"
-    ],
-    answer: 1,
-  },
-  {
-    question: "La couche présentation sert principalement à :",
-    options: [
-      "Acheminer les paquets",
-      "Fournir des services applicatifs",
-      "Convertir les données entre le format de l'application et le format réseau",
-      "Assurer un transport fiable des données"
-    ],
-    answer: 2,
-  },
-  {
-    question: "Quel est le rôle de la couche application dans le modèle OSI ?",
-    options: [
-      "Fournir une interface utilisateur pour accéder aux services réseau",
-      "Gérer les sessions entre applications",
-      "Acheminer les données entre les réseaux",
-      "Contrôler les erreurs de transmission"
-    ],
-    answer: 0,
-  },
-  {
-    question: "Quel protocole fonctionne principalement dans la couche transport ?",
-    options: [
-      "HTTP",
-      "TCP",
-      "Ethernet",
-      "DNS"
-    ],
-    answer: 1,
-  },
-  {
-    question: "Dans quel ordre les données traversent-elles les couches du modèle OSI lorsqu'elles sont transmises ?",
-    options: [
-      "Application -> Physique -> Réseau -> Transport -> Présentation",
-      "Physique -> Liaison de données -> Réseau -> Transport -> Session -> Présentation -> Application",
-      "Application -> Présentation -> Session -> Transport -> Réseau -> Liaison de données -> Physique",
-      "Session -> Transport -> Présentation -> Physique -> Liaison de données"
-    ],
-    answer: 2,
-  },
-];
