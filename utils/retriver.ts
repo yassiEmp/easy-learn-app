@@ -29,6 +29,8 @@ export const TopicsName = [
 export default function getQuestionsByName(
   name: string
 ): QuestionArray | number {
+  
+  console.log("the name is: ",name)
   switch (name) {
     case "questionTheme1":
       return questionTheme1;

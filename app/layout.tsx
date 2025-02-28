@@ -17,7 +17,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${unbounded.className} antialiased`}
+        className={`${unbounded.className} antialiased 
+        `}
       >
         {children}
       </body>

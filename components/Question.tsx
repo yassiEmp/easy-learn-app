@@ -6,34 +6,37 @@ const space_Grotesk = Space_Grotesk({
   weight: ["500", "700",],
 });
 
-interface QuestionProps {
-  question: string
-  options: string[]
-  onAnswer: (selectedAnswer: number | null) => void
-  currentQuestion: number
-  totalQuestions: number
-  selectedAnswer: number | null
+type Question ={
+  question: string;
+  options: string[];
+  answer: number;
+}
+interface QuestionProps extends Question{
+  QuestionIndex: number,
+
+  totalQuestions: number,
+  // the index of the selected option will be pushed here 
+  selectedOptions: number[]
 }
 
-export default function Question({ 
-  question, 
+export default function Question({
   options, 
-  onAnswer, 
-  currentQuestion, 
   totalQuestions,
-  selectedAnswer
+  selectedOptions,
+  question,
+  answer,
+  QuestionIndex
 }: QuestionProps) {
   return (
     <div className="bg-white shadow-md rounded-lg p-6">
-      <h2 className="text-xl font-semibold mb-4">Question {currentQuestion} sur {totalQuestions}</h2>
+      <h2 className="text-xl font-semibold mb-4">Question {QuestionIndex +1} sur {totalQuestions}</h2>
       <p className="text-lg mb-4">{question}</p>
       <div className="space-y-3">
         {options.map((option, index) => (
           <Button
             key={index}
-            className={`${space_Grotesk.className} w-full text-left justify-start text-2xs ${selectedAnswer === index ? 'bg-blue-100' : ''}`}
+            className={`${space_Grotesk.className} w-full text-left justify-start text-2xs text-wrap min-h-fit`}
             variant="outline"
-            onClick={() => onAnswer(index)}
           >
             {option}
           </Button>
