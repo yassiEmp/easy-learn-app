@@ -26,9 +26,9 @@ export const TopicsName = [
   "OSI"
 ];
 
-export default function getQuestionsByName(
+export default async function getQuestionsByName(
   name: string
-): QuestionArray | number {
+): Promise<QuestionArray | number> {
   
   console.log("the name is: ",name)
   switch (name) {
