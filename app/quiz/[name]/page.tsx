@@ -8,8 +8,7 @@ export default async function Quiz({ params }: { params: Promise<{name: string}>
   const name = (await params).name 
   const questions = getQuestionsByName(name) ;
 
-  if(questions==-1) return <>the asked question isn't available</>
-
+if(questions == -1) return <>the asked question isn&apos;t available</>
   const currentQuestion = (questions as QuestionArray)[0];
 
   return (
