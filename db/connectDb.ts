@@ -8,6 +8,9 @@ export default async function connectDb() {
         "the mongo db uiri string is missing (add it to the environement variable) at /db/connectDb.ts"
       );
     }
+    if (mongoose.connections[0].readyState === 1) {
+      return mongoose.connections[0];
+    }
     const db = await mongoose.connect(uri);
     return db;
   } catch (err) {

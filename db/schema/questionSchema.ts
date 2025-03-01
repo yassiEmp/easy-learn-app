@@ -1,13 +1,24 @@
-import mongoose from "mongoose";
-//haven't put a lot ow work to do this (not a good quality db schema)
-const question_schema = new mongoose.Schema(
+import { Document, Schema } from "mongoose";
+
+interface Question {
+  question: string;
+  options: string[];
+  answer: number;
+}
+
+// Extend Mongoose Document for type safety
+export interface QuestionDocument extends Question, Document {}
+
+export interface Topic {
+  name: string;
+  questions: Question[];
+}
+
+// Extend Mongoose Document for Topics
+export interface TopicDocument extends Topic, Document {}
+// Define Mongoose schema for questions
+const questionSchema = new Schema<QuestionDocument>(
   {
-    id: {
-      type: Number,
-      required: true,
-      unique: true,
-      autoIncrement: true
-    },
     question: {
       type: String,
       required: true,
@@ -19,12 +30,24 @@ const question_schema = new mongoose.Schema(
     answer: {
       type: Number,
       required: true,
+      min: 0, // Ensure valid index
     },
-    topics: {
-      type: String,
-      required: true
-    }
   },
   { timestamps: true }
 );
-export default question_schema;
+
+// Define Mongoose schema for topics
+const topicsSchema = new Schema<TopicDocument>({
+  name: {
+    type: String,
+    required: true,
+    unique: true,
+    index: true,
+  },
+  questions: {
+    type: [questionSchema], // Correctly define an array of subdocuments
+    required: true,
+  },
+});
+
+export default topicsSchema;

@@ -13,21 +13,36 @@ import {
   QuestionArray,
 } from "@/assets/question";
 import connectDb from "@/db/connectDb";
-import QuestionModel from "@/db/model/Question.model";
-import getQuestionsByName from "./retriver";
+import Topics from "@/db/model/Topics.model";
 
-function addQuestionToDb(ques: Question, topics: string) {
-  const connected = connectDb();
-  if(!connected){
-    return -1}
-  const question = new QuestionModel({
-    question: ques.question,
-    answer: ques.answer,
-    options: ques.options,
-    topics: topics,
-  });
-  question.save();
-  return;
+export async function addTopicsToDb(ques: QuestionArray, topicName: string) {
+  try {
+    const connected = await connectDb();
+    if (!connected) {
+      console.error("Failed to connect to the database.");
+      throw new Error("connection to db failed")
+    }
+
+    // Check if the topic already exists
+    const existingTopic = await Topics.findOne({ name: topicName });
+    if (existingTopic) {
+      console.log(`Topic ${topicName} already exists.`);
+      return;
+    }
+
+    const topic = new Topics({
+      questions: ques,
+      name: topicName,
+    });
+
+    // Save the topic and wait for completion
+    await topic.save();
+    console.log(`Topic ${topicName} saved successfully.`);
+    return "ok"
+  } catch (err) {
+    console.error(`Error adding topic ${topicName}:`, err);
+    return -1
+  }
 }
 
 export const TopicsName = [
@@ -40,10 +55,18 @@ export const TopicsName = [
   "questionTheme7",
   "formules",
   "mathQuestions",
-  "OSI"
+  "OSI",
 ];
 
-for(const name of TopicsName){
-  const QuestionArr = getQuestionsByName(name)
-  console.log(QuestionArr)
-}
+// export async function addThem(TopicsName:string[]) {
+//   for (const name of TopicsName) {
+//     try {
+//       const QuestionArr = await getQuestionsByName(name);
+//       if (typeof QuestionArr === "number") continue; // Skip if the result is an error code
+//       await addTopicsToDb(QuestionArr, name);
+//     } catch (err) {
+//       console.log(`Error retrieving questions for ${name}:`, err);
+//     }
+//   }
+// }
+

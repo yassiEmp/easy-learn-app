@@ -1,4 +1,4 @@
-import { TopicsName } from "@/utils/retriver";
+import { TopicsName } from "@/utils/exporter";
 import { NextRequest } from "next/server";
 
 export async function GET(req:NextRequest){

@@ -19,7 +19,7 @@ export default async function Quiz({
     const questions = await res.json()
     const length = (questions as QuestionArray).length;
     const prev = Math.max(questionIndex - 1, 0);
-    const next = Math.min(questionIndex + 1, length);
+    const next = Math.min(questionIndex , length);
     if (questions == -1) return <>the asked question isn&apos;t available</>;
     const currentQuestion = (questions as QuestionArray)[questionIndex];
     return (
