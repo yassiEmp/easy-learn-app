@@ -15,9 +15,9 @@ export default function ThemeSelector() {
               key={theme}
               className="w-full text-lg py-4 ">
             <Link
-              href={`/quiz/${theme}`}
+              href={`/quiz/${theme}/0`}
             >
-              {theme}
+              {theme.replace("question","")}
             </Link>
           </Button>
         ))}
