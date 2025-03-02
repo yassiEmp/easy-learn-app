@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Unbounded} from "next/font/google";
 import "./globals.css";
+import ErrorBoundary from "@/components/ErrorBoundary";
 
 const unbounded = Unbounded({ subsets: ["latin"], weight: ["400", "700"] });
 
@@ -20,7 +21,9 @@ export default function RootLayout({
         className={`${unbounded.className} antialiased w-full h-full
         `}
       >
-        {children}
+        <ErrorBoundary>
+          {children}
+        </ErrorBoundary>
       </body>
     </html>
   );
