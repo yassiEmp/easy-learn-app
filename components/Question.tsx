@@ -6,11 +6,12 @@ const space_Grotesk = Space_Grotesk({
   weight: ["500", "700",],
 });
 
-type Question ={
+export type Question ={
   question: string;
   options: string[];
   answer: number;
 }
+export type QuestionArray= Question[]
 interface QuestionProps extends Question{
   QuestionIndex: number,
 

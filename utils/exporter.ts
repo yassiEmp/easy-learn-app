@@ -1,20 +1,6 @@
-import {
-  questionTheme1,
-  questionTheme2,
-  questionTheme3,
-  questionTheme4,
-  questionTheme5,
-  questionTheme6,
-  questionTheme7,
-  formules,
-  mathQuestions,
-  OSI,
-  Question,
-  QuestionArray,
-} from "@/assets/question";
 import connectDb from "@/db/connectDb";
 import Topics from "@/db/model/Topics.model";
-
+import { QuestionArray } from "@/components/Question";
 export async function addTopicsToDb(ques: QuestionArray, topicName: string) {
   try {
     const connected = await connectDb();

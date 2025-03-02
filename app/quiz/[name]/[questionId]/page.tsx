@@ -1,9 +1,9 @@
-import { QuestionArray } from "@/assets/question";
 import Question from "@/components/Question";
 import { Button } from "@/components/ui/button";
 import { Topic } from "@/db/schema/questionSchema";
 import { ChevronLeft } from "lucide-react";
 import Link from "next/link";
+import { QuestionArray } from "@/components/Question";
 
 export default async function Quiz({
   params,
