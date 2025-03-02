@@ -16,18 +16,18 @@ import connectDb from "@/db/connectDb";
 import Topics from "@/db/model/Topics.model";
 import { Topic } from "@/db/schema/questionSchema";
 
-// export const TopicsName = [
-//   "questionTheme1",
-//   "questionTheme2",
-//   "questionTheme3",
-//   "questionTheme4",
-//   "questionTheme5",
-//   "questionTheme6",
-//   "questionTheme7",
-//   "formules",
-//   "mathQuestions",
-//   "OSI",
-// ];
+export const TopicsName = [
+  "questionTheme1",
+  "questionTheme2",
+  "questionTheme3",
+  "questionTheme4",
+  "questionTheme5",
+  "questionTheme6",
+  "questionTheme7",
+  "formules",
+  "mathQuestions",
+  "OSI",
+];
 
 // export default async function getQuestionsByName(
 //   name: string
@@ -62,7 +62,7 @@ import { Topic } from "@/db/schema/questionSchema";
 export async function getQuestionsByNameDb(
   name: string
 ): Promise<Topic | number> {
-  const connected = connectDb();
+  const connected = await connectDb();
   if (!connected) {
     return -1;
   }
@@ -71,4 +71,21 @@ export async function getQuestionsByNameDb(
     return -1;
   }
   return Top;
+}
+
+export async function getAllNames() {
+  try {
+    await connectDb(); // Ensure DB connection
+
+    const topics = await Topics.find().select("name -_id"); // Fetch only the 'name' field
+
+    if (!topics || topics.length === 0) {
+      return -1; // Return -1 if no topics found
+    }
+
+    return topics.map(tp=>tp.name); // Return the found topics
+  } catch (error) {
+    console.error("Error fetching topics:", error);
+    return -1; // Handle errors gracefully
+  }
 }

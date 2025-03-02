@@ -45,19 +45,6 @@ export async function addTopicsToDb(ques: QuestionArray, topicName: string) {
   }
 }
 
-export const TopicsName = [
-  "questionTheme1",
-  "questionTheme2",
-  "questionTheme3",
-  "questionTheme4",
-  "questionTheme5",
-  "questionTheme6",
-  "questionTheme7",
-  "formules",
-  "mathQuestions",
-  "OSI",
-];
-
 // export async function addThem(TopicsName:string[]) {
 //   for (const name of TopicsName) {
 //     try {
