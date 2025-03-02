@@ -4,7 +4,6 @@ import ChangeMode from "./changeMode";
 export const dynamic = "force-dynamic";
 export default async function TopicsSelector( ) {
   const apiUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
-  const mode: "apprentissage" | "devoir" = "apprentissage";
   try {
     // Ensure fetch runs at request time, not build time
     const res = await fetch(`${apiUrl}/api/allQuestions`, {
