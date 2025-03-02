@@ -30,6 +30,7 @@ export async function POST(req: Request) {
     try {
       data = await req.json();
     } catch (err) {
+      console.error(err)
       return new Response("Invalid or empty JSON body", { status: 400 });
     }
     if (!data.name) {

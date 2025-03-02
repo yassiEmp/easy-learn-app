@@ -15,9 +15,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="w-full h-svh ">
       <body
-        className={`${unbounded.className} antialiased 
+        className={`${unbounded.className} antialiased w-full h-full
         `}
       >
         {children}

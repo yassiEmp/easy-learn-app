@@ -75,15 +75,18 @@ export async function getQuestionsByNameDb(
 
 export async function getAllNames() {
   try {
-    await connectDb(); // Ensure DB connection
-
+    const dbConnected = await connectDb(); // Ensure DB connection
+    if (!dbConnected) {
+      console.error("somethings went wrong while connecting to Db");
+      return -1;
+    }
     const topics = await Topics.find().select("name -_id"); // Fetch only the 'name' field
 
     if (!topics || topics.length === 0) {
       return -1; // Return -1 if no topics found
     }
 
-    return topics.map(tp=>tp.name); // Return the found topics
+    return topics.map((tp) => tp.name); // Return the found topics
   } catch (error) {
     console.error("Error fetching topics:", error);
     return -1; // Handle errors gracefully

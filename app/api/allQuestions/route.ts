@@ -1,7 +1,6 @@
 import { getAllNames } from "@/utils/retriver";
-import { NextRequest } from "next/server";
 
-export async function GET(req: NextRequest) {
+export async function GET() {
   const TopicsName = await getAllNames();
   if (TopicsName == -1) {
     return new Response("no topic found ", { status: 404 });
