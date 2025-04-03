@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Unbounded} from "next/font/google";
 import "./globals.css";
 import ErrorBoundary from "@/components/ErrorBoundary";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const unbounded = Unbounded({ subsets: ["latin"], weight: ["400", "700"] });
 
@@ -21,6 +22,7 @@ export default function RootLayout({
         className={`${unbounded.className} antialiased w-full h-full
         `}
       >
+        <SpeedInsights />
         <ErrorBoundary>
           {children}
         </ErrorBoundary>
