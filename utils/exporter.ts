@@ -9,13 +9,6 @@ export async function addTopicsToDb(ques: QuestionArray, topicName: string) {
       throw new Error("connection to db failed")
     }
 
-    // Check if the topic already exists
-    const existingTopic = await Topics.findOne({ name: topicName });
-    if (existingTopic) {
-      console.log(`Topic ${topicName} already exists.`);
-      return;
-    }
-
     const topic = new Topics({
       questions: ques,
       name: topicName,
