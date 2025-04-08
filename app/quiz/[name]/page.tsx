@@ -13,7 +13,7 @@ export default async function Quiz({
 
     const res = await fetch(`${apiUrl}/api/questions?name=${name}`, {
       method: "GET",
-      cache: "force-cache",
+      next: { revalidate: 2678400 }, // Revalidate every 31 day
     });
 
     if (!res.ok) {

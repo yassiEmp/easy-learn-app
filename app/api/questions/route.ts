@@ -1,7 +1,7 @@
 import { addTopicsToDb } from "@/utils/exporter";
 import { getQuestionsByNameDb } from "@/utils/retriver";
 import { NextRequest } from "next/server";
-
+import { revalidatePath } from "next/cache";
 // this is a handler that respond with a Question array
 export async function GET(req: NextRequest) {
   const params = req.nextUrl.searchParams;
@@ -21,7 +21,9 @@ export async function GET(req: NextRequest) {
       status: 404,
     });
 
-  return Response.json(Topic);
+  const response = Response.json(Topic);
+  response.headers.set("Cache-Control", "max-age=2678400, public"); // Cache for 31 days
+  return response;
 }
 
 export async function POST(req: Request) {
@@ -46,6 +48,7 @@ export async function POST(req: Request) {
     const { name , questions } = data;
     const res = await addTopicsToDb(questions,name)
     if(res==-1){return new Response("error while interacting with the db retry later",{status: 500})}
+    revalidatePath("/api/allQuestions")
     return Response.json("ok");
   } catch (err) {
     console.error(err);

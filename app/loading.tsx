@@ -7,7 +7,7 @@ const Loading = () => {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4  overflow-y-auto">
             {Array.from({ length: 40 }).map((_, index) => (
-              <div key={index} className="w-full text-lg py-4 overflow-hidden text-primary-foreground shadow hover:bg-primary/90 rounded-sm animate-pulse bg-primary/10" />
+              <div key={index} className="w-full text-lg py-4 overflow-hidden text-primary-foreground shadow hover:bg-primary/20 rounded-sm animate-pulse bg-primary/10" />
             ))}
           </div>
         </div>
