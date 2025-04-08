@@ -77,7 +77,7 @@ const TopicComponent = ({ topic }: TopicComponentType) => {
           userAnswers={userAnswers}
         />
       ) : (
-        <>
+        <div className="mask-appear">
           <Question
             answer={currentQuestion.answer}
             options={currentQuestion.options}
@@ -107,14 +107,17 @@ const TopicComponent = ({ topic }: TopicComponentType) => {
               <ChevronLeft className="mr-2" />
               Question précédente
             </Button>
-            <Button className="flex items-center overflow-hidden" onClick={handleNext}>
+            <Button
+              className="flex items-center overflow-hidden"
+              onClick={handleNext}
+            >
               {questionIndex === topic.questions.length - 1
                 ? "Voir les résultats"
                 : "Passer la question"}
               <ChevronRight className="mr-2" />
             </Button>
           </div>
-        </>
+        </div>
       )}
     </main>
   );
