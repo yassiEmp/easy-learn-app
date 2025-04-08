@@ -34,7 +34,7 @@ export default async function Quiz({
     return (
       <>
         <h1 className="text-3xl font-bold mb-6 text-center">
-          Quiz sur le Droit du Travail - {name.replace("question", "").replace("%20"," ")}
+          Quiz sur - {name.replace("question", "").replace("%20"," ")}
         </h1>
         <TopicComponent topic={TopicE} />
       </>
