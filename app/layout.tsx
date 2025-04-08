@@ -8,7 +8,7 @@ const unbounded = Unbounded({ subsets: ["latin"], weight: ["400", "700"] });
 
 export const metadata: Metadata = {
   title: "QCM - Quizz",
-  description: "this is a quizz app to learn all your lesson and improv your level and knowledge for school or life",
+  description: "this is a quizz app to learn all your lesson and improve your level and knowledge for school or life",
 };
 
 export default function RootLayout({

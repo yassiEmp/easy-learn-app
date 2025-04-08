@@ -59,18 +59,21 @@ export const TopicsName = [
 //   }
 // }
 
-export async function getQuestionsByNameDb(
-  name: string
-): Promise<Topic | number> {
+export async function getQuestionsByNameDb(name: string) {
   const connected = await connectDb();
+
   if (!connected) {
     return -1;
   }
+
   const Top = await Topics.findOne<Topic>({ name: name });
+
   if (!Top) {
     return -1;
   }
+
   return Top;
+  
 }
 
 export async function getAllNames() {
