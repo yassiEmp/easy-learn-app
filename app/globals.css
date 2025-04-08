@@ -10,14 +10,7 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
-@keyframes appear {
-  from {scale: .5};
-  to{ scale: 1} ;
-}
-.mask-appear{
-  scale: .5;
-  animation: appear ease .3s .1s forwards;
-}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
