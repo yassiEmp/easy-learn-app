@@ -6,12 +6,12 @@ export default async function Quiz({
 }: {
   params: Promise<{ name: string }>;
 }) {
-  const name = (await params).name;
-
+  let {name} = await params;
+  name = decodeURIComponent(name)
+  console.log(name)
   try {
     const apiUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
-
-    const res = await fetch(`${apiUrl}/api/questions?name=${name}`, {
+    const res = await fetch(`${apiUrl}/api/questions?name=${encodeURIComponent(name)}`, {
       method: "GET",
       next: { revalidate: 2678400 }, // Revalidate every 31 day
     });
