@@ -1,16 +1,11 @@
-import React from 'react'
+import TopicsSelector from "@/components/TopicsSelector";
 
-const Page = () => {
+export default async function Home() {
   return (
-    <section className='container flex justify-center items-center bg-red-800'>
-        <p >
-            <span>apprend tes cours</span> 
-            <span>revise mieux</span>
-            <span>revise bien</span>
-            <span>deviens le premier que tu as toujour voulue</span>
-        </p>
-    </section>
-  )
+    <>
+      <main className="flex min-h-full flex-col items-center justify-between lg:p-24 md:p-16 p-4">
+        <TopicsSelector />
+      </main>
+    </>
+  );
 }
-
-export default Page
