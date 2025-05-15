@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Space_Grotesk } from "next/font/google";
-import { useState, useMemo } from "react";
+import { useMemo } from "react";
 import { Progress } from "@/components/ui/progress";
 
 const space_Grotesk = Space_Grotesk({
@@ -52,7 +52,7 @@ export default function Question({
       options: shuffled.map(item => item.option),
       correctIndex: shuffled.findIndex(item => item.originalIndex === answer)
     };
-  }, [options, answer, QuestionIndex]); // Re-randomize when question changes
+  }, [options, answer]); // Removed QuestionIndex as it's not needed for randomization
 
   const handleOptionClick = (index: number) => {
     setSelectedAnswer(index);
