@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Space_Grotesk } from "next/font/google";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { Progress } from "@/components/ui/progress";
 
 const space_Grotesk = Space_Grotesk({
@@ -44,9 +44,19 @@ export default function Question({
 }: QuestionProps) {
   const progress = ((QuestionIndex + 1) / totalQuestions) * 100;
 
+  // Randomize options while keeping track of the correct answer
+  const randomizedOptions = useMemo(() => {
+    const optionsWithIndices = options.map((option, index) => ({ option, originalIndex: index }));
+    const shuffled = [...optionsWithIndices].sort(() => Math.random() - 0.5);
+    return {
+      options: shuffled.map(item => item.option),
+      correctIndex: shuffled.findIndex(item => item.originalIndex === answer)
+    };
+  }, [options, answer, QuestionIndex]); // Re-randomize when question changes
+
   const handleOptionClick = (index: number) => {
     setSelectedAnswer(index);
-    handleAnswer(index);
+    handleAnswer(randomizedOptions.correctIndex === index ? answer : index);
   };
 
   return (
@@ -83,21 +93,21 @@ export default function Question({
         </div>
 
         <div className="space-y-2 sm:space-y-3">
-          {options.map((option, index) => (
+          {randomizedOptions.options.map((option, index) => (
             <Button
               key={index}
               className={`${space_Grotesk.className} w-full text-left justify-start text-base sm:text-lg text-wrap min-h-fit py-3 sm:py-4
                 transition-all duration-200 ease-out transform
                 ${isAnswerValidated 
-                  ? index === answer 
+                  ? index === randomizedOptions.correctIndex 
                     ? "bg-green-500 text-white border-green-600 scale-[1.02] shadow-lg ring-2 ring-green-400 ring-offset-2" 
-                    : selectedAnswer === index && index !== answer
+                    : selectedAnswer === index && index !== randomizedOptions.correctIndex
                       ? "bg-red-200 text-red-700 border-red-300 scale-[0.98] ring-1 ring-red-200"
                       : ""
                   : "hover:scale-[1.01] hover:shadow-sm active:scale-[0.99]"
                 }
-                ${isAnswerValidated && index === answer ? "animate-pulse-once" : ""}
-                ${isAnswerValidated && selectedAnswer === index && index !== answer ? "animate-shake" : ""}
+                ${isAnswerValidated && index === randomizedOptions.correctIndex ? "animate-pulse-once" : ""}
+                ${isAnswerValidated && selectedAnswer === index && index !== randomizedOptions.correctIndex ? "animate-shake" : ""}
                 ${!isAnswerValidated ? "animate-bounce-in" : ""}
               `}
               variant="outline"
