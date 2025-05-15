@@ -42,7 +42,21 @@ const TopicComponent = ({ topic }: TopicComponentType) => {
   }
 
   function handlePrev() {
+    // Remove the score for the current question if it was correct
+    if (userAnswers[questionIndex] === currentQuestion.answer) {
+      setScore((prev) => prev - 1);
+    }
+    
+    // Update the user answers array
+    setUserAnswers((prev) => {
+      const newAnswers = [...prev];
+      newAnswers[questionIndex] = null;
+      return newAnswers;
+    });
+
     setQuestionInd((ind) => Math.max(ind - 1, 0));
+    setIsAnswerValidated(false);
+    setSelectedAnswer(null);
   }
 
   function handleShowAnswer() {
@@ -50,15 +64,18 @@ const TopicComponent = ({ topic }: TopicComponentType) => {
   }
 
   function handleAnswer(selectedOption: number | null) {
+    // Only update score if this question hasn't been answered before
+    if (userAnswers[questionIndex] === null) {
+      if (selectedOption === currentQuestion.answer) {
+        setScore((prev) => prev + 1);
+      }
+    }
+
     setUserAnswers((prev) => {
       const newAnswers = [...prev];
       newAnswers[questionIndex] = selectedOption;
       return newAnswers;
     });
-
-    if (selectedOption === currentQuestion.answer) {
-      setScore((prev) => prev + 1);
-    }
 
     if (mode === "apprentissage") {
       setIsAnswerValidated(true);
