@@ -9,6 +9,32 @@ export default {
   ],
   theme: {
   	extend: {
+  		keyframes: {
+  			'pulse-once': {
+  				'0%': { transform: 'scale(1)', opacity: '1' },
+  				'50%': { transform: 'scale(1.03)', opacity: '0.9' },
+  				'100%': { transform: 'scale(1)', opacity: '1' }
+  			},
+  			'slide-in': {
+  				'0%': { transform: 'translateY(10px)', opacity: '0' },
+  				'100%': { transform: 'translateY(0)', opacity: '1' }
+  			},
+  			'fade-in': {
+  				'0%': { opacity: '0' },
+  				'100%': { opacity: '1' }
+  			},
+  			'shake': {
+  				'0%, 100%': { transform: 'translateX(0)' },
+  				'10%, 30%, 50%, 70%, 90%': { transform: 'translateX(-2px)' },
+  				'20%, 40%, 60%, 80%': { transform: 'translateX(2px)' }
+  			}
+  		},
+  		animation: {
+  			'pulse-once': 'pulse-once 0.6s cubic-bezier(0.4, 0, 0.6, 1)',
+  			'slide-in': 'slide-in 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+  			'fade-in': 'fade-in 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+  			'shake': 'shake 0.5s cubic-bezier(.36,.07,.19,.97) both'
+  		},
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
