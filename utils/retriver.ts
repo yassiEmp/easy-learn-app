@@ -95,3 +95,8 @@ export async function getAllNames() {
     return -1; // Handle errors gracefully
   }
 }
+
+export async function getTopic(name: string): Promise<Topic | null> {
+  const topic = await getQuestionsByNameDb(name);
+  return topic === -1 ? null : topic;
+}
