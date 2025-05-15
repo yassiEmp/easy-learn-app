@@ -24,6 +24,8 @@ interface QuestionProps extends Question {
   mode: string;
   isAnswerValidated: boolean;
   score: number;
+  selectedAnswer: number | null;
+  setSelectedAnswer: (answer: number | null) => void;
 }
 
 export default function Question({
@@ -37,8 +39,9 @@ export default function Question({
   isAnswerValidated,
   answer,
   score,
+  selectedAnswer,
+  setSelectedAnswer,
 }: QuestionProps) {
-  const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
   const progress = ((QuestionIndex + 1) / totalQuestions) * 100;
 
   const handleOptionClick = (index: number) => {

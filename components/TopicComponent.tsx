@@ -20,6 +20,7 @@ const TopicComponent = ({ topic }: TopicComponentType) => {
   const [userAnswers, setUserAnswers] = useState<(number | null)[]>(
     new Array(topic.questions.length).fill(null)
   );
+  const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
 
   const mode = useSearchParams().get("mode");
   if (!mode) return <h3>Veuillez définir le mode dans les paramètres.</h3>;
@@ -27,8 +28,8 @@ const TopicComponent = ({ topic }: TopicComponentType) => {
   const currentQuestion = topic.questions[questionIndex];
 
   function handleNext() {
-    if (mode === "apprentissage" && !isAnswerValidated) {
-      return; // Prevent moving to next question if answer is not validated
+    if (mode === "apprentissage" && !isAnswerValidated && selectedAnswer !== null) {
+      return; // Prevent moving to next question if answer is not validated and an answer was selected
     }
     
     if (questionIndex === topic.questions.length - 1) {
@@ -36,6 +37,7 @@ const TopicComponent = ({ topic }: TopicComponentType) => {
     } else {
       setQuestionInd((ind) => ind + 1);
       setIsAnswerValidated(false);
+      setSelectedAnswer(null);
     }
   }
 
@@ -68,6 +70,7 @@ const TopicComponent = ({ topic }: TopicComponentType) => {
           setQuestionInd((ind) => ind + 1);
         }
         setIsAnswerValidated(false);
+        setSelectedAnswer(null);
       }, 1500);
     } else {
       handleNext();
@@ -110,6 +113,8 @@ const TopicComponent = ({ topic }: TopicComponentType) => {
             mode={mode}
             isAnswerValidated={isAnswerValidated}
             score={score}
+            selectedAnswer={selectedAnswer}
+            setSelectedAnswer={setSelectedAnswer}
           />
           {showAnswer && (
             <div className="mt-2 p-4 bg-green-100 rounded">
