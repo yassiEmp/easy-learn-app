@@ -17,8 +17,9 @@ interface QuestionProps extends Question {
   totalQuestions: number;
   selectedOptions: number[];
   handleShowAnswer: () => void;
-  handleAnswer: (selectedOption: number) => void; // Added
+  handleAnswer: (selectedOption: number) => void;
   mode: string;
+  isAnswerValidated: boolean;
 }
 
 export default function Question({
@@ -27,8 +28,10 @@ export default function Question({
   question,
   QuestionIndex,
   handleShowAnswer,
-  handleAnswer, // Added
+  handleAnswer,
   mode,
+  isAnswerValidated,
+  answer,
 }: QuestionProps) {
   return (
     <>
@@ -41,9 +44,16 @@ export default function Question({
           {options.map((option, index) => (
             <Button
               key={index}
-              className={`${space_Grotesk.className} w-full text-left justify-start text-2xs text-wrap min-h-fit`}
+              className={`${space_Grotesk.className} w-full text-left justify-start text-2xs text-wrap min-h-fit transition-all duration-300 ${
+                isAnswerValidated 
+                  ? index === answer 
+                    ? "bg-green-500 text-white hover:bg-green-600 border-green-600" 
+                    : "opacity-50"
+                  : "hover:bg-gray-100"
+              }`}
               variant="outline"
-              onClick={() => handleAnswer(index)} // Handle answer selection
+              onClick={() => handleAnswer(index)}
+              disabled={isAnswerValidated}
             >
               {option}
             </Button>
@@ -53,7 +63,9 @@ export default function Question({
 
       <div className="mt-4">
         <Button
-          className={`w-full ${mode == "devoir" ? "opacity-60 cursor-not-allowed pointer-events-none" : ""}`}
+          className={`w-full transition-all duration-300 ${
+            mode === "devoir" ? "opacity-60 cursor-not-allowed pointer-events-none" : ""
+          }`}
           onClick={handleShowAnswer}
         >
           Afficher la réponse

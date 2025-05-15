@@ -16,6 +16,7 @@ const TopicComponent = ({ topic }: TopicComponentType) => {
   const [showAnswer, setShowAnswer] = useState(false);
   const [showResults, setShowResults] = useState(false);
   const [score, setScore] = useState(0);
+  const [isAnswerValidated, setIsAnswerValidated] = useState(false);
   const [userAnswers, setUserAnswers] = useState<(number | null)[]>(
     new Array(topic.questions.length).fill(null)
   );
@@ -26,10 +27,15 @@ const TopicComponent = ({ topic }: TopicComponentType) => {
   const currentQuestion = topic.questions[questionIndex];
 
   function handleNext() {
+    if (mode === "apprentissage" && !isAnswerValidated) {
+      return; // Prevent moving to next question if answer is not validated
+    }
+    
     if (questionIndex === topic.questions.length - 1) {
       setShowResults(true);
     } else {
       setQuestionInd((ind) => ind + 1);
+      setIsAnswerValidated(false);
     }
   }
 
@@ -52,7 +58,20 @@ const TopicComponent = ({ topic }: TopicComponentType) => {
       setScore((prev) => prev + 1);
     }
 
-    handleNext();
+    if (mode === "apprentissage") {
+      setIsAnswerValidated(true);
+      // Wait for 1.5 seconds before moving to next question
+      setTimeout(() => {
+        if (questionIndex === topic.questions.length - 1) {
+          setShowResults(true);
+        } else {
+          setQuestionInd((ind) => ind + 1);
+        }
+        setIsAnswerValidated(false);
+      }, 1500);
+    } else {
+      handleNext();
+    }
   }
 
   function restartQuiz() {
@@ -89,6 +108,7 @@ const TopicComponent = ({ topic }: TopicComponentType) => {
             key={questionIndex}
             selectedOptions={[]}
             mode={mode}
+            isAnswerValidated={isAnswerValidated}
           />
           {showAnswer && (
             <div className="mt-2 p-4 bg-green-100 rounded">
