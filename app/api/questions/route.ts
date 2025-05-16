@@ -1,6 +1,5 @@
 import { addTopicsToDb } from "@/utils/exporter";
 import { getQuestionsByNameDb } from "@/utils/retriver";
-import { NextRequest } from "next/server";
 import { revalidatePath } from "next/cache";
 // this is a handler that respond with a Question array
 export async function GET(request: Request) {

@@ -1,4 +1,3 @@
-import { Topic } from "@/db/schema/questionSchema";
 import TopicComponent from "@/components/TopicComponent";
 import { getAllNames, getTopic } from "@/utils/retriver";
 
