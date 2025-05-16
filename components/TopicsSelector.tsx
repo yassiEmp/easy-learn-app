@@ -1,16 +1,18 @@
 import Link from "next/link";
 import { Button } from "./ui/button";
 import ChangeMode from "./changeMode";
-import { getAllNames } from "@/utils/retriver";
 
-export default async function TopicsSelector() {
+export default async function TopicsSelector( ) {
+  const apiUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
   try {
-    // Fetch themes at build time
-    const themes = await getAllNames();
-    
-    if (themes === -1) {
-      throw new Error("No topics found");
-    }
+    // Use ISR for fetching topics
+    const res = await fetch(`${apiUrl}/api/allQuestions`, {
+      next: { revalidate: 3600 }, // Revalidate every hour
+    });
+
+    if (!res.ok) throw new Error("Failed to fetch themes");
+
+    const themes: string[] = await res.json();
 
     return (
       <>

@@ -2,21 +2,27 @@ import { addTopicsToDb } from "@/utils/exporter";
 import { getQuestionsByNameDb } from "@/utils/retriver";
 import { revalidatePath } from "next/cache";
 // this is a handler that respond with a Question array
-export async function GET(request: Request) {
-  const { searchParams } = new URL(request.url);
-  const name = searchParams.get("name");
+export async function GET(req: NextRequest) {
+  const params = req.nextUrl.searchParams;
 
-  if (!name) {
-    return new Response("Missing name parameter", { status: 400 });
-  }
+  const name = params.get("name");
 
-  const topic = await getQuestionsByNameDb(name);
+  if (!name)
+    return new Response("the name parameter is missing for this request", {
+      status: 400,
+    });
 
-  if (topic === -1) {
-    return new Response("Topic not found", { status: 404 });
-  }
+  //get the questions from the db using name (identifier)
+  const Topic = await getQuestionsByNameDb(name);
 
-  return Response.json(topic);
+  if (Topic == -1)
+    return new Response("the requested Topics doesn't have a qcm (yet)", {
+      status: 404,
+    });
+
+  const response = Response.json(Topic);
+  response.headers.set("Cache-Control", "max-age=2678400, public"); // Cache for 31 days
+  return response;
 }
 
 export async function POST(req: Request) {
