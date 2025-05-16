@@ -1,13 +1,13 @@
 import Link from "next/link";
 import { Button } from "./ui/button";
 import ChangeMode from "./changeMode";
-
+export const dynamic = "force-dynamic";
 export default async function TopicsSelector( ) {
   const apiUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
   try {
-    // Use ISR for fetching topics
+    // Ensure fetch runs at request time, not build time
     const res = await fetch(`${apiUrl}/api/allQuestions`, {
-      next: { revalidate: 3600 }, // Revalidate every hour
+      cache: "no-store", // Ensures fresh data
     });
 
     if (!res.ok) throw new Error("Failed to fetch themes");
