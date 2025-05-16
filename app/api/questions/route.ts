@@ -1,3 +1,4 @@
+import { NextRequest } from "next/server";
 import { addTopicsToDb } from "@/utils/exporter";
 import { getQuestionsByNameDb } from "@/utils/retriver";
 import { revalidatePath } from "next/cache";

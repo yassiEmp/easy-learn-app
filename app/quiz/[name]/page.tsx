@@ -1,4 +1,5 @@
 import TopicComponent from "@/components/TopicComponent";
+import { Topic } from "@/db/schema/questionSchema";
 
 export default async function Quiz({
   params,
