@@ -6,6 +6,7 @@ export default async function Quiz({
 }: {
   params: Promise<{ name: string }>;
 }) {
+  
   let {name} = await params;
   name = decodeURIComponent(name)
   console.log(name)

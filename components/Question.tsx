@@ -61,7 +61,7 @@ export default function Question({
 
   return (
     <>
-      <div className="bg-white shadow-md rounded-lg p-4 sm:p-6 animate-slide-in">
+      <div className="bg-white shadow-md rounded-lg p-4 animate-slide-in w-full">
         <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 mb-4 sm:mb-6">
           <div className="flex flex-wrap items-center gap-2">
             <div className="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm sm:text-base font-medium">
@@ -88,7 +88,7 @@ export default function Question({
 
         <Progress value={progress} className="h-1.5 sm:h-2 mb-4 sm:mb-6" />
 
-        <div className="bg-muted/50 p-3 sm:p-4 rounded-lg mb-4 sm:mb-6">
+        <div className="bg-muted/50 p-3 sm:p-4 rounded-lg mb-4 sm:mb-6 sticky top-5 z-20 backdrop-blur-sm" >
           <p className="text-lg sm:text-xl font-medium leading-relaxed">{question}</p>
         </div>
 
