@@ -5,7 +5,7 @@ type TFlipCard={
     handleClick: React.MouseEventHandler,
     question: string,
     answer: string,
-    isFlipped: Boolean
+    isFlipped: boolean
 }
 export function FlipCard({ handleClick, question, answer, isFlipped }:TFlipCard) {
     return <div
