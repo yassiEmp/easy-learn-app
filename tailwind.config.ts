@@ -32,14 +32,14 @@ export default {
   				'0%': { transform: 'scale(0.95)', opacity: '0' },
   				'50%': { transform: 'scale(1.02)' },
   				'100%': { transform: 'scale(1)', opacity: '1' }
-  			}
+  			}, 
   		},
   		animation: {
   			'pulse-once': 'pulse-once 0.4s cubic-bezier(0.4, 0, 0.6, 1)',
   			'slide-in': 'slide-in 0.25s cubic-bezier(0.4, 0, 0.2, 1)',
   			'fade-in': 'fade-in 0.2s cubic-bezier(0.4, 0, 0.2, 1)',
   			'shake': 'shake 0.3s cubic-bezier(.36,.07,.19,.97) both',
-  			'bounce-in': 'bounce-in 0.3s cubic-bezier(0.4, 0, 0.2, 1)'
+  			'bounce-in': 'bounce-in 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
   		},
   		colors: {
   			background: 'hsl(var(--background))',

@@ -21,10 +21,10 @@ export default async function TopicsSelector( ) {
             Choisissez un thème
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {themes.map((theme) => (
+            {themes.map((theme,ind) => (
               <Button
                 key={theme}
-                className="w-full text-lg py-4 overflow-hidden"
+                className="w-full text-lg py-4 overflow-hidden "
               >
                 <Link
                   href={`/quiz/${theme}?mode=apprentissage`}

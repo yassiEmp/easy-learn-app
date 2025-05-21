@@ -153,7 +153,7 @@ const TopicComponent = ({ topic }: TopicComponentType) => {
                   setSelectedAnswer={setSelectedAnswer}
                 />
                 {showAnswer && (
-                  <div className="mt-2 p-2 sm:p-4 bg-green-100 rounded">
+                  <div className="mt-2 p-2 sm:p-4 bg-green-100 rounded animate-slide-in">
                     <p className="font-bold">Réponse correcte:</p>
                     <p>{currentQuestion.options[currentQuestion.answer]}</p>
                   </div>
