@@ -18,7 +18,7 @@ const zodQcmQuestionSchema = z.object({
 });
 const zodQuestionnarySchema = z.object({
   name: z.string()
-    .max(30)
+    .max(50)
     .min(5)
     .describe("the name of the questionnary (max 30 characters minimum 5)"),
   questions: z.array(zodQcmQuestionSchema)
@@ -40,10 +40,14 @@ export async function generateQuestionnaryFromText(text: string, language: strin
 
   // initialize the prompt for questionnary generation
   const generateQuestionPrompt = ChatPromptTemplate.fromTemplate(`
-    generate questions about the following text
-    format instructions: {format_instructions}
-    text: {text}
-    the questionnary should be in the following language: {language}
+    Generate a questionnaire about the following text.
+    Important: The questionnaire name MUST be between 5 and 30 characters long.
+    
+    Format instructions: {format_instructions}
+    Text: {text}
+    Language: {language}
+    
+    Remember: Keep the questionnaire name short and concise (5-30 characters).
   `);
 
 
@@ -55,14 +59,26 @@ export async function generateQuestionnaryFromText(text: string, language: strin
 
 
   // generate the questionnary
-  const response = await generateQuestionChain.invoke({
-    text: text,
-    language: language,
-    format_instructions: parser.getFormatInstructions()
-  });
+  try {
+    const response = await generateQuestionChain.invoke({
+      text: text,
+      language: language,
+      format_instructions: parser.getFormatInstructions()
+    });
 
-  console.log(response);
-  return response;
+    // Validate the response before returning
+    const validationResult = zodQuestionnarySchema.safeParse(response);
+    if (!validationResult.success) {
+      console.error("Validation failed:", validationResult.error);
+      throw new Error("Generated questionnaire failed validation");
+    }
+
+    console.log(response);
+    return response;
+  } catch (error) {
+    console.error("Error generating questionnaire:", error);
+    throw error;
+  }
 }
 
 export default async function getQuestionnaryFromText(text: string, language: string) {
