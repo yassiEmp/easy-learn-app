@@ -18,7 +18,6 @@ const zodQcmQuestionSchema = z.object({
 });
 const zodQuestionnarySchema = z.object({
   name: z.string()
-    .max(50)
     .min(5)
     .describe("the name of the questionnary (max 30 characters minimum 5)"),
   questions: z.array(zodQcmQuestionSchema)
